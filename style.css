@@ -1,0 +1,74 @@
+/* Extended Dramatic Styles with Section Waves */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap');
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Inter',sans-serif; background:#fdfdfd; color:#333; }
+
+/* Navbar */
+.navbar { position:sticky; top:0; width:100%; background:rgba(255,255,255,0.9); backdrop-filter:blur(10px);
+  display:flex; align-items:center; justify-content:space-between; padding:1rem 2rem; z-index:1000;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+.logo { font-family:'Poppins',sans-serif; font-weight:700; letter-spacing:2px; font-size:1.5rem; text-transform:uppercase; }
+.nav-links { list-style:none; display:flex; gap:2rem; }
+.nav-links a { position:relative; text-decoration:none; color:#333; font-weight:500; transition:color 0.3s; }
+.nav-links a::after { content:''; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:#6C63FF; transition:width 0.3s; }
+.nav-links a:hover { color:#6C63FF; } .nav-links a:hover::after { width:100%; }
+
+/* Dark Mode Toggle */
+.dark-mode-toggle { background:none; border:none; font-size:1.5rem; cursor:pointer; transition:transform 0.3s; }
+.dark-mode-toggle:active { transform:rotate(180deg); }
+
+/* Hero */
+.header { position:relative; background:linear-gradient(135deg,#6C63FF,#FF7E67); color:#fff; }
+.hero { min-height:80vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:0 2rem; }
+.hero h1 { font-family:'Poppins',sans-serif; font-size:3rem; margin-bottom:1rem; animation:fadeInDown 1s ease both; }
+.hero p { font-size:1.25rem; margin-bottom:2rem; animation:fadeInUp 1s ease 0.5s both; }
+.btn-primary { background:#fff; color:#6C63FF; padding:0.75rem 2rem; border-radius:50px; font-weight:600; text-decoration:none;
+  box-shadow:0 8px 20px rgba(0,0,0,0.1); transition:transform 0.3s; }
+.btn-primary:hover { transform:translateY(-3px); }
+
+/* Wave Dividers */
+.wave-divider { width:100%; overflow:hidden; line-height:0; }
+.wave-divider svg { width:100%; height:80px; display:block; }
+
+/* Sections */
+.section { position:relative; padding:6rem 2rem; background:#fff; }
+.section.alt { background:#f7f8fa; }
+.container { max-width:1000px; margin:0 auto; }
+.section h2 { font-family:'Poppins',sans-serif; font-size:2rem; margin-bottom:1rem; display:inline-block; position:relative; }
+.section h2::after { content:''; position:absolute; left:0; bottom:-8px; width:50%; height:3px; background:#6C63FF; }
+
+/* Portfolio Grid */
+.portfolio-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2rem; margin-top:2rem; }
+.portfolio-card { background:#fff; padding:2rem; border-radius:16px; box-shadow:0 8px 30px rgba(0,0,0,0.05);
+  text-align:center; font-weight:600; transition:transform 0.3s,box-shadow 0.3s; }
+.portfolio-card:hover { transform:translateY(-5px); box-shadow:0 12px 40px rgba(0,0,0,0.1); }
+
+/* Contact Form */
+form { display:flex; flex-direction:column; gap:1rem; margin-top:1rem; }
+form label { font-weight:500; }
+form input, form textarea { padding:1rem; border:1px solid#ddd; border-radius:8px; transition:border 0.3s; }
+form input:focus, form textarea:focus { border-color:#6C63FF; outline:none; }
+form button { align-self:flex-start; }
+
+/* Footer */
+.footer { text-align:center; padding:2rem; background:#fff; }
+
+/* Keyframes */
+@keyframes fadeInDown { from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:none;} }
+@keyframes fadeInUp { from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;} }
+
+/* Dark Mode */
+body.dark-mode { background:#121214; color:#e5e5e5; }
+body.dark-mode .navbar { background:rgba(28,28,30,0.9); }
+body.dark-mode .nav-links a { color:#e5e5e5; }
+body.dark-mode .header { background:linear-gradient(135deg,#3a3a3c,#5b5b7a); }
+body.dark-mode .hero h1, body.dark-mode .hero p { color:#f1f1f1; }
+body.dark-mode .section { background:#1c1c1e; }
+body.dark-mode .section.alt { background:#2a2a2c; }
+body.dark-mode .portfolio-card { background:#2a2a2c; box-shadow:0 8px 30px rgba(0,0,0,0.2); }
+body.dark-mode form input, body.dark-mode form textarea { background:#2f2f31; color:#e5e5e5; border-color:#444; }
+body.dark-mode .btn-primary { background:#6C63FF; color:#fff; }
