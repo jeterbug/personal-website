@@ -29,9 +29,6 @@ body { font-family:'Inter',sans-serif; background:#fdfdfd; color:#333; }
 /* Mobile Menu Toggle */
 .menu-toggle { display:none; font-size:1.5rem; cursor:pointer; }
 
-/* Sticky Duplicate Removal */
-body > nav.navbar + nav.navbar { display:none; }
-
 /* Glass Hero */
 .header { position:relative; background:linear-gradient(135deg,#6C63FF,#FF7E67); color:#fff; }
 .hero {
