@@ -1,5 +1,5 @@
-# from your local repo root
-touch .nojekyll
-git add .nojekyll
-git commit -m "Disable Jekyll so css/js folders get published"
-git push
+# in your local clone:
+> echo -n "" > .nojekyll     # overwrite with nothing
+> git add .nojekyll
+> git commit -m "Make .nojekyll an empty marker file"
+> git push
