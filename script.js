@@ -1,14 +1,14 @@
-// script.js
 document.addEventListener('DOMContentLoaded', () => {
   const menuIcon = document.getElementById('menu-icon');
   const navLinks = document.getElementById('nav-links');
 
-  // Toggle mobile menu
+  // Toggle mobile menu + animate icon
   menuIcon.addEventListener('click', () => {
     navLinks.classList.toggle('active');
+    menuIcon.classList.toggle('is-active');
   });
 
-  // Close menu + smooth scroll
+  // Close menu + smooth scroll on link click
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         target.scrollIntoView({ behavior: 'smooth' });
       }
       navLinks.classList.remove('active');
+      menuIcon.classList.remove('is-active');
     });
   });
 
@@ -30,6 +31,5 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }, { threshold: 0.2 });
-
   faders.forEach(el => obs.observe(el));
 });
