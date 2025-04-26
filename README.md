@@ -1,6 +1,6 @@
 # Portfolio Website
 
-This is a simple one-page portfolio site for Jeter Cotton, focusing on operations project management.
+This is a one-page glassmorphic portfolio site for Jeter Cotton, focusing on operations project management.
 
 ## Launch Instructions
 
