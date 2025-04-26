@@ -11,11 +11,11 @@
   --accent-hover: #4FB0E6;
 
   /* Glass panel defaults */
-  --panel-bg:     rgba(255, 255, 255, 0.3);
-  --panel-border: rgba(255, 255, 255, 0.6);
+  --panel-bg:     rgba(255, 255, 255, 0.25);
+  --panel-border: rgba(255, 255, 255, 0.5);
 
   --text:        #1c1c1e;
-  --bg:          #f0f4f8;
+  --bg:          var(--tertiary); /* page background now warm cream */
   --nav-height:  70px;
 }
 
@@ -63,7 +63,9 @@ body {
   z-index: 100;
 }
 .nav-container {
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   height: 100%; padding: 0 2rem;
 }
 .logo {
@@ -100,12 +102,8 @@ body {
   );
   color: #fff;
 }
-.hero h1 {
-  font-size: 3rem; margin-bottom: 1rem;
-}
-.hero p {
-  font-size: 1.2rem; margin-bottom: 1.5rem;
-}
+.hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+.hero p { font-size: 1.2rem; margin-bottom: 1.5rem; }
 .btn {
   text-decoration: none;
   display: inline-block; padding: 0.75rem 1.5rem;
@@ -117,7 +115,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* SECTION WRAPPER */
+/* SECTIONS */
 .section {
   padding: 4rem 2rem; max-width: 1000px; margin: 4rem auto;
 }
@@ -131,8 +129,7 @@ body {
   display: flex; flex-wrap: wrap; gap: 2rem;
 }
 .about-text {
-  flex: 2 1 300px;
-  padding: 1.5rem;
+  flex: 2 1 300px; padding: 1.5rem;
 }
 .about-metrics {
   flex: 1 1 200px;
