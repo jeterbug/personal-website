@@ -18,7 +18,7 @@
 <body>
   <nav class="navbar">
     <div class="nav-container glass">
-      <div class="logo">Jeter Cotton</div>
+      <div class="logo">JETER COTTON</div>
       <div class="menu-icon" id="menu-icon"><span></span><span></span><span></span></div>
       <ul class="nav-links" id="nav-links">
         <li><a href="#hero">Home</a></li>
@@ -38,7 +38,16 @@
 
   <section id="about" class="section glass fade-in-section">
     <h2>About Me</h2>
-    <p>I’m a seasoned project manager with a passion for operational strategy. Over the past few years, I’ve led cross-functional teams to deliver complex projects on time and within budget, improving efficiency and driving measurable results.</p>
+    <div class="about-container">
+      <div class="about-text">
+        <p>I’m a seasoned project manager with a passion for operational strategy. Over the past few years, I’ve led cross-functional teams to deliver complex projects on time and within budget, improving efficiency and driving measurable results.</p>
+      </div>
+      <ul class="about-points">
+        <li>7+ Years Experience</li>
+        <li>30% Onboarding Time Reduction</li>
+        <li>Managed $2M+ Budgets</li>
+      </ul>
+    </div>
   </section>
 
   <section id="skills" class="section glass fade-in-section">
@@ -68,7 +77,12 @@
 
   <section id="contact" class="section glass fade-in-section">
     <h2>Contact</h2>
-    <p>Let’s connect: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
   </section>
 </body>
 </html>
