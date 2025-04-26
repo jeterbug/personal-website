@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.classList.toggle('active');
   });
 
-  // Close menu + smooth scroll on anchor click
+  // Close menu + smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
@@ -20,16 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // IntersectionObserver for fade-in
+  // Fade-in observer
   const faders = document.querySelectorAll('.fade-in-section');
-  const obsOptions = { threshold: 0.2 };
-  const observer = new IntersectionObserver((entries, obs) => {
+  const obs = new IntersectionObserver((entries, obsr) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        obs.unobserve(entry.target);
+        obsr.unobserve(entry.target);
       }
     });
-  }, obsOptions);
-  faders.forEach(el => observer.observe(el));
+  }, { threshold: 0.2 });
+
+  faders.forEach(el => obs.observe(el));
 });
