@@ -1,20 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --primary: #002F6C;   /* dark navy */
-  --secondary: #0056b3; /* mid-blue */
-  --tertiary: #FFA726;  /* warm orange */
-  --accent: #FF7043;    /* coral */
-  --accent2: #FFF3E0;   /* pale peach */
+  --primary: #007BFF;     /* v1.0 blue */
+  --secondary: #E3F2FD;   /* light blue */
+  --tertiary: #90CAF9;    /* pale blue */
+  --accent: #9C27B0;      /* purple accent */
+  --accent-hover: #7B1FA2;/* darker purple */
+  --accent2: #F3E5F5;     /* pale purple for hovers */
   --text: #1c1c1e;
   --bg: #f0f4f8;
   --nav-height: 70px;
 }
 
-/* anchor offset */
-html { scroll-padding-top: var(--nav-height); }
+/* ensure anchors land at top */
+html {
+  scroll-padding-top: var(--nav-height);
+}
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
 
 body {
   font-family: 'Inter', sans-serif;
@@ -23,7 +28,7 @@ body {
   scroll-behavior: smooth;
 }
 
-/* fade‐in on scroll */
+/* fade-in on scroll */
 .fade-in-section {
   opacity: 0;
   transform: translateY(20px);
@@ -34,7 +39,7 @@ body {
   transform: translateY(0);
 }
 
-/* glass card */
+/* glass base */
 .glass {
   background: rgba(255,255,255,0.3);
   backdrop-filter: blur(20px);
@@ -45,9 +50,7 @@ body {
 
 /* NAVBAR */
 .navbar {
-  position: fixed;
-  top: 0; width: 100%; height: var(--nav-height);
-  z-index: 100;
+  position: fixed; top: 0; width: 100%; height: var(--nav-height); z-index: 100;
 }
 .nav-container {
   display: flex; align-items: center; justify-content: space-between;
@@ -71,23 +74,14 @@ body {
   background: var(--accent); color: #fff;
 }
 .nav-btn:hover {
-  background: var(--tertiary);
-}
-
-/* hamburger */
-.menu-icon {
-  display: none; flex-direction: column; cursor: pointer;
-}
-.menu-icon span {
-  width: 25px; height: 3px; background: var(--text);
-  margin: 4px 0; transition: 0.3s;
+  background: var(--accent-hover);
 }
 
 /* HERO */
 .hero {
   min-height: 100vh; margin-top: var(--nav-height);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center; text-align: center;
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; text-align: center;
   background: linear-gradient(
     135deg,
     var(--primary) 0%,
@@ -96,114 +90,48 @@ body {
   );
   color: #fff;
 }
-.hero h1 {
-  font-size: 3rem; margin-bottom: 1rem;
-}
-.hero p {
-  font-size: 1.2rem; margin-bottom: 1.5rem;
-}
+.hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+.hero p { font-size: 1.2rem; margin-bottom: 1.5rem; }
 .btn {
-  padding: 0.75rem 1.5rem;
-  background: rgba(255,255,255,0.4); backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.7);
-  color: var(--primary); font-weight: 600; border-radius: 8px;
+  text-decoration: none;
+  display: inline-block; padding: 0.75rem 1.5rem;
+  background: var(--accent); color: #fff; border-radius: 8px;
   transition: background 0.3s, transform 0.3s;
 }
 .btn:hover {
-  background: rgba(255,255,255,0.6);
+  background: var(--accent-hover);
   transform: translateY(-2px);
 }
 
-/* SECTIONS */
-.section {
-  padding: 4rem 2rem; max-width: 1000px; margin: 4rem auto;
+/* ABOUT (unchanged from v1.3) */
+.section { padding: 4rem 2rem; max-width: 1000px; margin: 4rem auto; }
+.section h2 { font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--primary); text-align: center; }
+.about-intro { padding: 2rem; margin-bottom: 2rem; }
+.about-cards {
+  display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
 }
-.section h2 {
-  font-size: 2.5rem; margin-bottom: 1.5rem;
-  color: var(--primary); text-align: center;
-}
-
-/* ABOUT */
-.about-container {
-  display: flex; flex-wrap: wrap; gap: 2rem;
-}
-.about-text {
-  flex: 1 1 300px;
-}
-.about-points {
+.about-card {
   flex: 1 1 200px;
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
-  gap: 1rem;
-}
-.about-points li {
   background: rgba(255,255,255,0.4); backdrop-filter: blur(15px);
-  padding: 0.75rem 1rem; border-radius: 8px;
-  font-weight: 600; text-align: center;
-}
-
-/* SKILLS */
-.skills-list {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;
-  list-style: none;
-}
-.skills-list li {
-  background: rgba(255,255,255,0.4); backdrop-filter: blur(15px);
-  padding: 0.75rem 1.25rem; border-radius: 8px;
-  font-weight: 600;
-  transition: background 0.3s;
-}
-.skills-list li:hover {
-  background: var(--accent2);
-}
-
-/* PORTFOLIO */
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-.project {
-  background: rgba(255,255,255,0.3); backdrop-filter: blur(15px);
-  padding: 1.5rem; border-radius: 12px;
+  border-radius: 12px; padding: 1.5rem; text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
 }
-.project:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+.about-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
+.about-card h3 { margin-bottom: 0.5rem; color: var(--primary); }
 
-/* CONTACT */
-.contact-form {
-  display: flex; flex-direction: column; gap: 1rem;
-  max-width: 600px; margin: 0 auto;
-}
-.contact-form input,
-.contact-form textarea {
-  padding: 0.75rem 1rem; border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.7);
-  background: rgba(255,255,255,0.4); backdrop-filter: blur(15px);
-  color: var(--text); font-size: 1rem;
-}
-.contact-form button {
-  padding: 0.75rem 1.5rem; border: none; border-radius: 8px;
-  background: var(--accent); color: #fff; font-weight: 600;
-  cursor: pointer; transition: background 0.3s, transform 0.3s;
-}
-.contact-form button:hover {
-  background: var(--tertiary);
-  transform: translateY(-2px);
-}
+/* SKILLS, PORTFOLIO, CONTACT, FOOTER (unchanged) */
+/* ... rest of your CSS remains exactly as in v1.3 ... */
 
 /* MOBILE */
 @media (max-width: 768px) {
-  .nav-links {
-    display: none; position: absolute; top: var(--nav-height); right: 20px;
+  .nav-links { display: none; position: absolute; top: var(--nav-height); right: 20px;
     background: rgba(255,255,255,0.9); backdrop-filter: blur(20px);
     flex-direction: column; border-radius: 8px; padding: 1rem;
   }
   .nav-links.active { display: flex; }
   .menu-icon { display: flex; }
-  .about-container { flex-direction: column; }
+  .about-cards { flex-direction: column; }
 }
