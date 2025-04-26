@@ -1,39 +1,75 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
 :root {
-  --primary:   #60B5FF;  /* sky blue */
-  --secondary: #AFDDFF;  /* pastel blue */
-  --tertiary:  #FFECDB;  /* warm cream */
+  /* your chosen palette */
+  --primary:   #60B5FF;
+  --secondary: #AFDDFF;
+  --tertiary:  #FFECDB;
 
-  --accent:       var(--primary);
-  --accent-hover: #4FB0E6;
-
-  --panel-bg:     rgba(255,255,255,0.15);
-  --panel-border: rgba(255,255,255,0.4);
-
-  --text:        #1c1c1e;
-  --bg:          var(--tertiary);
-  --nav-height:  70px;
+  /* heavier frost */
+  --panel-bg:     rgba(255, 255, 255, 0.2);
+  --panel-border: rgba(255, 255, 255, 0.5);
 }
-
-/* anchor offset */
-html { scroll-padding-top: var(--nav-height); }
-*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 
 body {
-  font-family:'Inter',sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  scroll-behavior: smooth;
+  background: var(--tertiary);
 }
 
-/* base glass */
-.glass {
-  background: var(--panel-bg);
-  backdrop-filter: blur(25px);
+/* tighten hero wrapper */
+.hero {
+  /* drop the full-bleed gradient */
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin-top: var(--nav-height);
+}
+
+/* floating, inset gradient panel */
+.hero-container {
+  max-width: 1000px;
+  width: calc(100% - 4rem);
+  margin: 2rem auto;
+  padding: 3rem;
+  background: linear-gradient(
+    135deg,
+    var(--primary)   0%,
+    var(--secondary) 60%,
+    var(--tertiary)  100%
+  );
+  backdrop-filter: blur(30px);
   border: 1px solid var(--panel-border);
   border-radius: 16px;
-  box-shadow: 0 12px 48px rgba(0,0,0,0.08);
+  box-shadow: 0 16px 64px rgba(0, 0, 0, 0.1);
+}
+
+/* inset nav the same way */
+.navbar {
+  position: fixed;
+  top: 20px;        /* float down from the very top */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+}
+.nav-container {
+  max-width: 1000px;
+  width: calc(100% - 4rem);
+  padding: 0.75rem 2rem;
+  background: var(--panel-bg);
+  backdrop-filter: blur(30px);
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  box-shadow: 0 16px 64px rgba(0, 0, 0, 0.1);
+}
+
+/* dial-up the frost on all glass panels */
+.glass {
+  background: var(--panel-bg);
+  backdrop-filter: blur(30px);
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  box-shadow: 0 16px 64px rgba(0, 0, 0, 0.1);
 }
 
 /* Fade‐in sections */
