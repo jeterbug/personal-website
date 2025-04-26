@@ -1,18 +1,21 @@
+// mobile menu toggle
 const menuIcon = document.getElementById('menu-icon');
 const navLinks = document.getElementById('nav-links');
-
 menuIcon.addEventListener('click', () => {
   navLinks.classList.toggle('active');
 });
 
-// Smooth scrolling + auto-close mobile menu
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(anchor.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-      navLinks.classList.remove('active');
-    }
-  });
+// simple fade-in on scroll
+document.addEventListener('DOMContentLoaded', () => {
+  const faders = document.querySelectorAll('.fade-in-section');
+  const options = { threshold: 0.2 };
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, options);
+  faders.forEach(section => observer.observe(section));
 });
