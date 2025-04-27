@@ -5,14 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jeter Cotton | Operations Project Manager</title>
 
+  <!-- Safari address-bar tint -->
+  <meta name="theme-color" content="#E44332" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
   <!-- Inter font -->
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
-  <!-- Version-busted CSS -->
-  <link rel="stylesheet" href="styles.css?v=5.2" />
-  <!-- Your script for hamburger toggle + fade-ins -->
+
+  <!-- Corrected: load CSS RELATIVE to index.html -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Main script -->
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -51,10 +58,10 @@
     <div class="about-container">
       <div class="about-text glass fade-in-section">
         <p>
-          I’m a seasoned project manager with a passion for operational
-          strategy. Over the past few years, I’ve led cross-functional teams to
-          deliver complex projects on time and within budget, improving
-          efficiency and driving measurable results.
+          I’m a seasoned project manager with a passion for operational strategy.
+          Over the past few years, I’ve led cross-functional teams to deliver
+          complex projects on time and within budget, improving efficiency and
+          driving measurable results.
         </p>
       </div>
       <div class="about-metrics">
@@ -107,44 +114,15 @@
     </div>
   </section>
 
-<!-- CONTACT -->
-<section id="contact" class="section glass fade-in-section">
-  <h2>Contact</h2>
+  <!-- CONTACT -->
+  <section id="contact" class="section glass fade-in-section">
+    <h2>Contact</h2>
+    <p>
+      Let’s connect: 
+      <a href="mailto:youremail@example.com">youremail@example.com</a>
+    </p>
+  </section>
 
-  <!-- response message goes here -->
-  <div id="form-response" class="form-response"></div>
-
-  <form
-    id="contact-form"
-    class="contact-form"
-    action="https://formspree.io/f/xwpopazq"
-    method="POST"
-  >
-    <!-- honeypot to trap bots -->
-    <input type="text" name="_gotcha" style="display:none" />
-
-    <input
-      type="text"
-      name="name"
-      placeholder="Your Name"
-      required
-    />
-    <input
-      type="email"
-      name="_replyto"
-      placeholder="Your Email"
-      required
-    />
-    <textarea
-      name="message"
-      placeholder="Your Message"
-      rows="4"
-      required
-    ></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
-  
   <!-- FOOTER -->
   <footer class="footer glass fade-in-section">
     <p>© 2025 Jeter Cotton. All rights reserved.</p>
