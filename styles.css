@@ -1,4 +1,4 @@
-/* styles.css v4.3 */
+/* styles.css v4.4 */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
@@ -54,7 +54,7 @@ h1, h2, a {
   color: var(--text-head);
 }
 
-/* Subtle fade + scale animation */
+/* Fade + scale on scroll */
 .fade-in-section {
   opacity: 0;
   transform: translateY(20px) scale(0.98);
@@ -65,7 +65,7 @@ h1, h2, a {
   transform: translateY(0) scale(1);
 }
 
-/* Glass-morphism base style */
+/* Glass-morphism base */
 .glass {
   background: var(--glass-bg);
   backdrop-filter: blur(30px);
@@ -78,17 +78,17 @@ h1, h2, a {
 
 /* NAVIGATION */
 .navbar {
-  position: fixed;
-  top: 20px; left: 0; width: 100%;
-  z-index: 100;
+  position: fixed; top: 20px; left: 0; width: 100%; z-index: 100;
 }
 .nav-container {
   max-width: var(--max-width);
   width: calc(100% - var(--spacing)*2);
   margin: 0 auto;
   padding: 0.75rem var(--spacing);
-  display: flex; align-items: center; justify-content: space-between;
-  min-height: var(--nav-height);  /* center links vertically */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--nav-height);
 }
 .logo {
   font-weight: 700; font-size: 1.2rem; text-transform: none;
@@ -101,15 +101,15 @@ h1, h2, a {
   padding: 0.5rem 0.75rem; border-radius: 8px;
   transition: background 0.3s, color 0.3s;
 }
-/* darker red hover on all links */
 .nav-links a:hover {
   background: var(--accent-secondary);
   color: #fff;
 }
+
 /* Contact button in nav */
 .nav-btn {
   background: var(--btn-bg);
-  color: #fff !important; /* ensure white text */
+  color: #fff !important;
   padding: 0.5rem 0.75rem;
 }
 
@@ -128,10 +128,10 @@ h1, h2, a {
 
 /* MOBILE HAMBURGER */
 .menu-icon.hamburger {
-  display: none; /* mobile only */
+  display: none;
   flex-direction: column; justify-content: space-between;
-  width: 30px; height: 24px; background: transparent; border: none;
-  cursor: pointer; padding: 0; z-index: 1000;
+  width: 30px; height: 24px; background: transparent;
+  border: none; cursor: pointer; padding: 0; z-index: 1000;
 }
 .menu-icon.hamburger span {
   display: block; width: 100%; height: 3px;
@@ -150,23 +150,34 @@ h1, h2, a {
 
 /* FULL-SCREEN MOBILE MENU */
 @media (max-width: 768px) {
-  .menu-icon.hamburger { display: flex; }
-  .nav-links { display: none; }
+  .menu-icon.hamburger {
+    display: flex;
+  }
+  .nav-links {
+    display: none;
+  }
   .nav-links.active {
-    display: flex; position: fixed; top: 0; left: 0;
-    width: 100%; height: 100vh;
-    background: rgba(255,255,255,0.35);
-    backdrop-filter: blur(240px);
-    flex-direction: column; align-items: center; justify-content: center;
-    gap: 2rem; z-index: 99;
+    display: flex;
+    position: fixed; top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(255,255,255,0.85);   /* heavy opacity */
+    backdrop-filter: blur(120px);        /* very frosty */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    z-index: 99;
     animation: menuFadeIn 0.4s ease-out forwards;
   }
   .nav-links a {
-    font-size: 2rem; color: var(--text-body);
+    font-size: 2rem;
+    color: var(--text-body);
   }
 }
+
 @keyframes menuFadeIn {
-  from { opacity: 0; } to { opacity: 1; }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 /* HERO */
@@ -175,12 +186,10 @@ h1, h2, a {
   min-height: 100vh; margin-top: var(--nav-height);
 }
 .hero-container {
-  /* remove wave entirely, stick to gradient + glass panel */
-  position: relative;
   max-width: var(--max-width);
   width: calc(100% - var(--spacing)*2);
   margin: var(--spacing) auto;
-  padding: 8rem calc(var(--spacing)*2); /* generous padding */
+  padding: 8rem calc(var(--spacing)*2);
   min-height: 80vh;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center; text-align: center;
@@ -190,17 +199,17 @@ h1, h2, a {
     var(--secondary) 60%,
     var(--primary)   100%
   );
-  color: #fff; /* headline remains white */
+  color: #fff;
   border-radius: 20px;
   box-shadow: 0 16px 64px rgba(0,0,0,0.1);
-  overflow: hidden;  
+  overflow: hidden;
 }
 .hero-container h1 {
-  font-size: 3rem; margin-bottom: 1rem; /* white by default */
+  font-size: 3rem; margin-bottom: 1rem;
 }
 .hero-container p {
   font-size: 1.2rem; margin-bottom: 1.5rem;
-  color: var(--text-body); /* dark grey for contrast */
+  color: var(--text-body);  /* dark grey body text */
 }
 
 /* SECTION WRAPPER */
