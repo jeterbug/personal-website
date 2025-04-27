@@ -107,8 +107,8 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="section glass fade-in-section">
+  <!-- Non-Functional CONTACT -->
+  <!-- <section id="contact" class="section glass fade-in-section">
     <h2>Contact</h2>
     <form class="contact-form fade-in-section">
       <input type="text" placeholder="Your Name" required />
@@ -116,8 +116,50 @@
       <textarea placeholder="Your Message" rows="4" required></textarea>
       <button type="submit">Send Message</button>
     </form>
-  </section>
+  </section> -->
 
+<!-- CONTACT -->
+<section id="contact" class="section glass fade-in-section">
+  <h2>Contact</h2>
+  <form
+    class="contact-form fade-in-section"
+    action="https://formspree.io/f/xwpopazq"
+    method="POST"
+  >
+    <!-- honeypot to trap bots -->
+    <input type="text" name="_gotcha" style="display:none" />
+
+    <!-- Optional: redirect to your own thank-you page -->
+    <!--
+    <input
+      type="hidden"
+      name="_next"
+      value="https://jeterbug.github.io/personal-website/thank-you.html"
+    />
+    -->
+
+    <input
+      type="text"
+      name="name"
+      placeholder="Your Name"
+      required
+    />
+    <input
+      type="email"
+      name="_replyto"
+      placeholder="Your Email"
+      required
+    />
+    <textarea
+      name="message"
+      placeholder="Your Message"
+      rows="4"
+      required
+    ></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+  
   <!-- FOOTER -->
   <footer class="footer glass fade-in-section">
     <p>© 2025 Jeter Cotton. All rights reserved.</p>
