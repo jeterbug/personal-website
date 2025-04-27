@@ -16,14 +16,14 @@
     rel="stylesheet"
   />
 
-  <!-- load your CSS *relative* to this file -->
-  <link rel="stylesheet" href="styles.css?v=5.11" />
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
 
-  <!-- load your JS *relative* to this file -->
-  <script src="script.js?v=5.11" defer></script>
+  <!-- Main script -->
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <!-- NAV -->
+  <!-- NAVIGATION -->
   <nav class="navbar">
     <div class="nav-container glass fade-in-section">
       <div class="logo">Jeter Cotton</div>
@@ -117,34 +117,10 @@
   <!-- CONTACT -->
   <section id="contact" class="section glass fade-in-section">
     <h2>Contact</h2>
-    <div id="form-response" class="form-response"></div>
-    <form
-      id="contact-form"
-      class="contact-form"
-      action="https://formspree.io/f/xwpopazq"
-      method="POST"
-    >
-      <input type="text" name="_gotcha" style="display:none" />
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input
-        type="email"
-        name="_replyto"
-        placeholder="Your Email"
-        required
-      />
-      <textarea
-        name="message"
-        placeholder="Your Message"
-        rows="4"
-        required
-      ></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+    <p>
+      Let’s connect:
+      <a href="mailto:youremail@example.com">youremail@example.com</a>
+    </p>
   </section>
-
-  <!-- FOOTER -->
-  <footer class="footer glass fade-in-section">
-    <p>© 2025 Jeter Cotton. All rights reserved.</p>
-  </footer>
 </body>
 </html>
