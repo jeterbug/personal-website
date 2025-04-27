@@ -194,7 +194,6 @@ h1, h2, a {
     color: var(--text-body);
   }
 }
-
 @keyframes menuFadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
@@ -213,25 +212,28 @@ h1, h2, a {
   max-width: var(--max-width);
   width: calc(100% - var(--spacing)*2);
   margin: var(--spacing) auto;
-  padding: 6rem var(--spacing); /* extra breathing room */
+  padding: 8rem calc(var(--spacing)*2); /* more padding */
   min-height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: var(--glass-bg);
-  backdrop-filter: blur(30px);
-  border: 1px solid var(--glass-border);
+  background: linear-gradient(
+    135deg,
+    var(--tertiary)   0%,
+    var(--secondary) 60%,
+    var(--primary)   100%
+  ); /* gradient in hero */
+  color: #fff; /* hero text always white */
   border-radius: 20px;
   box-shadow: 0 16px 64px rgba(0,0,0,0.1);
   overflow: hidden;  /* clip the wave */
 }
 .hero-container h1,
 .hero-container p {
-  color: var(--text-body);
+  margin-bottom: 1rem;
 }
-/* wave effect */
 .hero-container .wave {
   position: absolute;
   bottom: -1px;
