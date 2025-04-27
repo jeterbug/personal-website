@@ -1,4 +1,4 @@
-/* styles.css v5.9 */
+/* styles.css v5.10 */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
@@ -18,7 +18,7 @@
   --spacing:           2rem;
 }
 
-/* Global resets & smooth scrolling */
+/* Global resets & smooth scroll */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--nav-height);
@@ -45,7 +45,7 @@ h1, h2, a {
   color: var(--text-head);
 }
 
-/* Fade-in on scroll */
+/* Fade‐in on scroll */
 .fade-in-section {
   opacity: 0;
   transform: translateY(20px) scale(0.98);
@@ -57,7 +57,7 @@ h1, h2, a {
   transform: translateY(0) scale(1);
 }
 
-/* Glass baseline */
+/* Glass‐morphism base */
 .glass {
   background: var(--glass-bg);
   -webkit-backdrop-filter: blur(30px);
@@ -69,12 +69,11 @@ h1, h2, a {
     0 16px 64px rgba(0,0,0,0.05);
 }
 
-/* NAVIGATION - Desktop */
+/* NAVIGATION – Desktop */
 .navbar {
   position: fixed;
   top: 20px; left: 0;
-  width: 100%;
-  z-index: 100;
+  width: 100%; z-index: 100;
 }
 .nav-container {
   max-width: var(--max-width);
@@ -115,7 +114,7 @@ h1, h2, a {
   border-radius: 8px;
 }
 
-/* BUTTONS */
+/* Buttons */
 .btn {
   text-decoration: none;
   display: inline-block;
@@ -130,9 +129,9 @@ h1, h2, a {
   transform: translateY(-2px);
 }
 
-/* HAMBURGER ICON */
+/* Hamburger icon */
 .menu-icon.hamburger {
-  display: none; /* only on mobile */
+  display: none; /* mobile only */
   flex-direction: column;
   justify-content: space-between;
   width: 30px; height: 24px;
@@ -156,31 +155,27 @@ h1, h2, a {
   transform: translateY(-10px) rotate(-45deg);
 }
 
-/* DROPDOWN-STYLE MOBILE MENU */
+/* DROPDOWN‐STYLE MOBILE MENU */
 @media (max-width: 768px) {
   .menu-icon.hamburger {
     display: flex;
   }
-
-  /* hide nav links until active */
   .nav-links {
     display: none !important;
   }
-
   .nav-links.active {
     display: flex !important;
     flex-direction: column;
     align-items: center;
-    padding: var(--spacing) 0;             /* top & bottom breathing room */
-    background-color: rgba(255,255,255,0.85) !important;
-    -webkit-backdrop-filter: blur(60px);
-    backdrop-filter: blur(60px);
+    padding: var(--spacing) 0;                 /* breathing room top & bottom */
+    background-color: rgba(255,255,255,0.80) !important;
+    -webkit-backdrop-filter: blur(80px);
+    backdrop-filter: blur(80px);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.1);
     position: absolute;
-    top: var(--nav-height);
-    left: 0;
+    top: var(--nav-height); left: 0;
     width: 100%;
     max-height: 500px;
     overflow: hidden;
@@ -192,24 +187,21 @@ h1, h2, a {
       transform 0.5s ease-out;
     z-index: 999;
   }
-
   .nav-links.active a {
     padding: 1rem var(--spacing);
     width: calc(100% - var(--spacing)*2);
     margin: 0 auto;
     font-size: 1.6rem;
-    text-align: center;                   /* center text */
+    text-align: center;
     color: var(--text-head);
     transition: background 0.3s, color 0.3s;
   }
-
   .nav-links.active a:hover {
     background: rgba(255,255,255,0.2);
     color: #fff;
   }
-
   .nav-links.active a.nav-btn {
-    margin-top: var(--spacing);
+    margin: var(--spacing) auto;               /* extra space above/below */
     background: var(--btn-bg) !important;
     color: #fff !important;
   }
@@ -245,10 +237,12 @@ h1, h2, a {
   overflow: hidden;
 }
 .hero-container h1 {
-  font-size: 3rem; margin-bottom: 1rem;
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 .hero-container p {
-  font-size: 1.2rem; margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
   color: var(--text-body);
 }
 
@@ -259,9 +253,14 @@ h1, h2, a {
   margin: 4rem auto;
 }
 .section h2 {
-  font-size: 2.5rem; margin-bottom: 1.5rem;
-  color: var(--text-head); text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-head);
+  text-align: center;
 }
+
+/* ABOUT, SKILLS, PORTFOLIO, CONTACT, FOOTER */
+/* retain your existing glass‐morphic styles for these sections */
 
 /* ABOUT */
 .about-container {
