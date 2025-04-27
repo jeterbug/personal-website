@@ -1,17 +1,17 @@
-/* styles.css v4.5 */
+/* styles.css v4.6 */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Todoist-inspired reds */
+  /* Todoist‐inspired reds */
   --primary:           #E44332;
   --secondary:         #FFDCDC;
   --tertiary:          #FFF8F7;
 
-  /* Nav-link hover = darker red */
+  /* Darker hover for links */
   --accent-secondary:  #C33029;
 
-  /* Buttons */
+  /* Button colors */
   --btn-bg:            var(--primary);
   --btn-hover:         #C33029;
 
@@ -29,7 +29,6 @@
   --spacing:           2rem;
 }
 
-/* Smooth scroll + anchor offset */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--nav-height);
@@ -56,7 +55,7 @@ h1, h2, a {
   color: var(--text-head);
 }
 
-/* Subtle fade + scale on scroll */
+/* Fade + scale on scroll */
 .fade-in-section {
   opacity: 0;
   transform: translateY(20px) scale(0.98);
@@ -67,7 +66,7 @@ h1, h2, a {
   transform: translateY(0) scale(1);
 }
 
-/* Glass-morphism base style */
+/* Glass‐morphism base */
 .glass {
   background: var(--glass-bg);
   backdrop-filter: blur(30px);
@@ -80,37 +79,25 @@ h1, h2, a {
 
 /* NAVIGATION */
 .navbar {
-  position: fixed;
-  top: 20px; left: 0;
-  width: 100%; z-index: 100;
+  position: fixed; top: 20px; left: 0; width: 100%; z-index: 100;
 }
 .nav-container {
   max-width: var(--max-width);
   width: calc(100% - var(--spacing)*2);
   margin: 0 auto;
   padding: 0.75rem var(--spacing);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: flex; align-items: center; justify-content: space-between;
   min-height: var(--nav-height);
 }
 .logo {
-  font-weight: 700;
-  font-size: 1.2rem;
-  text-transform: none;
+  font-weight: 700; font-size: 1.2rem; text-transform: none;
 }
 .nav-links {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  list-style: none;
+  display: flex; align-items: center; gap: 1.5rem; list-style: none;
 }
 .nav-links a {
-  text-decoration: none;
-  font-weight: 600;
-  color: var(--text-body);
-  padding: 0.5rem 0.75rem;
-  border-radius: 8px;
+  text-decoration: none; font-weight: 600; color: var(--text-body);
+  padding: 0.5rem 0.75rem; border-radius: 8px;
   transition: background 0.3s, color 0.3s;
 }
 .nav-links a:hover {
@@ -125,11 +112,9 @@ h1, h2, a {
 
 /* BUTTONS */
 .btn {
-  text-decoration: none;
-  display: inline-block;
+  text-decoration: none; display: inline-block;
   padding: 0.75rem 1.5rem;
-  background: var(--btn-bg);
-  color: #fff;
+  background: var(--btn-bg); color: #fff;
   border-radius: 8px;
   transition: background 0.3s, transform 0.3s;
 }
@@ -140,20 +125,15 @@ h1, h2, a {
 
 /* MOBILE HAMBURGER */
 .menu-icon.hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px; height: 24px;
-  background: transparent; border: none;
+  display: none; /* mobile only */
+  flex-direction: column; justify-content: space-between;
+  width: 30px; height: 24px; background: transparent; border: none;
   cursor: pointer; padding: 0; z-index: 1000;
 }
 .menu-icon.hamburger span {
-  display: block;
-  width: 100%; height: 3px;
-  background: rgba(0,0,0,0.4);
-  border-radius: 2px;
-  transition: all 0.5s ease-in-out;
-  transform-origin: center;
+  display: block; width: 100%; height: 3px;
+  background: rgba(0,0,0,0.4); border-radius: 2px;
+  transition: all 0.5s ease-in-out; transform-origin: center;
 }
 .menu-icon.hamburger.is-active span:nth-child(1) {
   transform: translateY(10px) rotate(45deg);
@@ -165,7 +145,7 @@ h1, h2, a {
   transform: translateY(-10px) rotate(-45deg);
 }
 
-/* FULL-SCREEN MOBILE MENU */
+/* FULLSCREEN GLASS MOBILE MENU */
 @media (max-width: 768px) {
   .menu-icon.hamburger {
     display: flex;
@@ -174,30 +154,42 @@ h1, h2, a {
     display: none;
   }
   .nav-links.active {
+    /* centered glass panel */
     display: flex;
     position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    background: rgba(255,255,255,0.95);   /* very opaque */
-    backdrop-filter: blur(200px);         /* extreme frost */
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - var(--spacing)*2);
+    max-height: calc(100vh - var(--nav-height)*2);
+    overflow-y: auto;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 2rem;
+    gap: var(--spacing);
+    padding: var(--spacing);
+    background: var(--glass-bg);
+    backdrop-filter: blur(40px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
     z-index: 99;
     animation: menuFadeIn 0.4s ease-out forwards;
   }
-  .nav-links a {
-    color: var(--text-head);
-    background: rgba(255,255,255,0.15);   /* subtle glass panel */
-    padding: 1rem 2rem;
+  .nav-links.active a {
+    width: 100%;
+    padding: 1rem;
+    background: var(--glass-bg);
     border-radius: 12px;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    text-align: center;
+    color: var(--text-head);
     transition: background 0.3s, color 0.3s;
   }
-  .nav-links a:hover {
+  .nav-links.active a:hover {
     background: var(--accent-secondary);
     color: #fff;
+  }
+  .nav-links.active a.nav-btn {
+    background: var(--btn-bg)!important;
+    color: #fff!important;
   }
 }
 
@@ -208,11 +200,8 @@ h1, h2, a {
 
 /* HERO */
 .hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  margin-top: var(--nav-height);
+  display: flex; align-items: center; justify-content: center;
+  min-height: 100vh; margin-top: var(--nav-height);
 }
 .hero-container {
   max-width: var(--max-width);
@@ -220,11 +209,8 @@ h1, h2, a {
   margin: var(--spacing) auto;
   padding: 8rem calc(var(--spacing)*2);
   min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
   background: linear-gradient(
     135deg,
     var(--tertiary)   0%,
@@ -237,12 +223,10 @@ h1, h2, a {
   overflow: hidden;
 }
 .hero-container h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 3rem; margin-bottom: 1rem;
 }
 .hero-container p {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.2rem; margin-bottom: 1.5rem;
   color: var(--text-body);
 }
 
@@ -253,59 +237,40 @@ h1, h2, a {
   margin: 4rem auto;
 }
 .section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  color: var(--text-head);
-  text-align: center;
+  font-size: 2.5rem; margin-bottom: 1.5rem;
+  color: var(--text-head); text-align: center;
 }
 
 /* ABOUT */
 .about-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
+  display: flex; flex-wrap: wrap; gap: 2rem;
 }
 .about-text {
-  flex: 2 1 300px;
-  padding: 1.5rem;
+  flex: 2 1 300px; padding: 1.5rem;
 }
 .about-metrics {
-  flex: 1 1 200px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  flex: 1 1 200px; display: flex; flex-direction: column; gap: 1rem;
 }
 .metric {
-  padding: 1rem;
-  text-align: center;
-  background: var(--glass-bg);
-  backdrop-filter: blur(15px);
-  border-radius: 12px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 1rem; text-align: center;
+  background: var(--glass-bg); backdrop-filter: blur(15px);
+  border-radius: 12px; transition: transform 0.3s, box-shadow 0.3s;
 }
 .metric:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 32px rgba(0,0,0,0.1);
 }
 .metric h3 {
-  margin-bottom: 0.5rem;
-  color: var(--text-head);
+  margin-bottom: 0.5rem; color: var(--text-head);
 }
 
 /* SKILLS */
 .skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  list-style: none;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;
 }
 .skills-list li {
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  padding: 0.75rem 1.25rem;
-  border-radius: 8px;
-  font-weight: 600;
+  background: var(--glass-bg); backdrop-filter: blur(20px);
+  padding: 0.75rem 1.25rem; border-radius: 8px; font-weight: 600;
   transition: background 0.3s, transform 0.3s;
 }
 .skills-list li:hover {
@@ -315,15 +280,12 @@ h1, h2, a {
 
 /* PORTFOLIO */
 .projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
   gap: 1.5rem;
 }
 .project {
-  padding: 1.5rem;
-  border-radius: 12px;
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
+  padding: 1.5rem; border-radius: 12px;
+  background: var(--glass-bg); backdrop-filter: blur(20px);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .project:hover {
@@ -333,31 +295,20 @@ h1, h2, a {
 
 /* CONTACT */
 .contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 600px;
-  margin: 0 auto;
+  display: flex; flex-direction: column; gap: 1rem;
+  max-width: 600px; margin: 0 auto;
 }
 .contact-form input,
 .contact-form textarea {
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
+  padding: 0.75rem 1rem; border-radius: 8px;
   border: 1px solid var(--glass-border);
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  color: var(--text-body);
-  font-size: 1rem;
+  background: var(--glass-bg); backdrop-filter: blur(20px);
+  color: var(--text-body); font-size: 1rem;
 }
 .contact-form button {
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 8px;
-  background: var(--btn-bg);
-  color: #fff;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
+  padding: 0.75rem 1.5rem; border: none; border-radius: 8px;
+  background: var(--btn-bg); color: #fff; font-weight: 600;
+  cursor: pointer; transition: background 0.3s, transform 0.3s;
 }
 .contact-form button:hover {
   background: var(--btn-hover);
@@ -368,12 +319,8 @@ h1, h2, a {
 .footer {
   max-width: var(--max-width);
   width: calc(100% - var(--spacing)*2);
-  margin: 4rem auto;
-  padding: 2rem;
+  margin: 4rem auto; padding: 2rem;
   text-align: center;
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  border-radius: 20px;
-  font-size: 0.9rem;
-  color: var(--text-body);
+  background: var(--glass-bg); backdrop-filter: blur(20px);
+  border-radius: 20px; font-size: 0.9rem; color: var(--text-body);
 }
