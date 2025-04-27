@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.classList.toggle('active');
   });
 
-  // Close the menu when a link is clicked
+  // Close menu on link click
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
       if (navLinks.classList.contains('active')) {
@@ -21,7 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Fade-in on scroll
   const faders = document.querySelectorAll('.fade-in-section');
-  const options = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+  const options = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
