@@ -1,4 +1,4 @@
-/* styles.css v4.2 */
+/* styles.css v4.3 */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
@@ -35,9 +35,7 @@ html {
   scroll-padding-top: var(--nav-height);
 }
 *, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0; padding: 0; box-sizing: border-box;
 }
 
 body {
@@ -81,9 +79,7 @@ h1, h2, a {
 /* NAVIGATION */
 .navbar {
   position: fixed;
-  top: 20px;
-  left: 0;
-  width: 100%;
+  top: 20px; left: 0; width: 100%;
   z-index: 100;
 }
 .nav-container {
@@ -91,46 +87,41 @@ h1, h2, a {
   width: calc(100% - var(--spacing)*2);
   margin: 0 auto;
   padding: 0.75rem var(--spacing);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: var(--nav-height);  /* ensure vertical centering */
+  display: flex; align-items: center; justify-content: space-between;
+  min-height: var(--nav-height);  /* center links vertically */
 }
 .logo {
-  font-weight: 700;
-  font-size: 1.2rem;
-  text-transform: none;
+  font-weight: 700; font-size: 1.2rem; text-transform: none;
 }
 .nav-links {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  list-style: none;
+  display: flex; align-items: center; gap: 1.5rem; list-style: none;
 }
 .nav-links a {
-  text-decoration: none;
-  font-weight: 600;
-  color: var(--text-body);
-  padding: 0.5rem 0.75rem;
-  border-radius: 8px;
+  text-decoration: none; font-weight: 600; color: var(--text-body);
+  padding: 0.5rem 0.75rem; border-radius: 8px;
   transition: background 0.3s, color 0.3s;
 }
+/* darker red hover on all links */
 .nav-links a:hover {
   background: var(--accent-secondary);
   color: #fff;
 }
+/* Contact button in nav */
+.nav-btn {
+  background: var(--btn-bg);
+  color: #fff !important; /* ensure white text */
+  padding: 0.5rem 0.75rem;
+}
 
 /* BUTTONS */
-.btn, .nav-btn {
-  text-decoration: none;
-  display: inline-block;
+.btn {
+  text-decoration: none; display: inline-block;
   padding: 0.75rem 1.5rem;
-  background: var(--btn-bg);
-  color: #fff;
+  background: var(--btn-bg); color: #fff;
   border-radius: 8px;
   transition: background 0.3s, transform 0.3s;
 }
-.btn:hover, .nav-btn:hover {
+.btn:hover {
   background: var(--btn-hover);
   transform: translateY(-2px);
 }
@@ -138,24 +129,14 @@ h1, h2, a {
 /* MOBILE HAMBURGER */
 .menu-icon.hamburger {
   display: none; /* mobile only */
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 24px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 1000;
+  flex-direction: column; justify-content: space-between;
+  width: 30px; height: 24px; background: transparent; border: none;
+  cursor: pointer; padding: 0; z-index: 1000;
 }
 .menu-icon.hamburger span {
-  display: block;
-  width: 100%;
-  height: 3px;
-  background: rgba(0,0,0,0.4);
-  border-radius: 2px;
-  transition: all 0.5s ease-in-out;
-  transform-origin: center;
+  display: block; width: 100%; height: 3px;
+  background: rgba(0,0,0,0.4); border-radius: 2px;
+  transition: all 0.5s ease-in-out; transform-origin: center;
 }
 .menu-icon.hamburger.is-active span:nth-child(1) {
   transform: translateY(10px) rotate(45deg);
@@ -169,89 +150,57 @@ h1, h2, a {
 
 /* FULL-SCREEN MOBILE MENU */
 @media (max-width: 768px) {
-  .menu-icon.hamburger {
-    display: flex;
-  }
-  .nav-links {
-    display: none;
-  }
+  .menu-icon.hamburger { display: flex; }
+  .nav-links { display: none; }
   .nav-links.active {
-    display: flex;
-    position: fixed;
-    top: 0; left: 0;
+    display: flex; position: fixed; top: 0; left: 0;
     width: 100%; height: 100vh;
     background: rgba(255,255,255,0.35);
     backdrop-filter: blur(240px);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    z-index: 99;
+    flex-direction: column; align-items: center; justify-content: center;
+    gap: 2rem; z-index: 99;
     animation: menuFadeIn 0.4s ease-out forwards;
   }
   .nav-links a {
-    font-size: 2rem;
-    color: var(--text-body);
+    font-size: 2rem; color: var(--text-body);
   }
 }
 @keyframes menuFadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from { opacity: 0; } to { opacity: 1; }
 }
 
 /* HERO */
 .hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  margin-top: var(--nav-height);
+  display: flex; align-items: center; justify-content: center;
+  min-height: 100vh; margin-top: var(--nav-height);
 }
 .hero-container {
+  /* remove wave entirely, stick to gradient + glass panel */
   position: relative;
   max-width: var(--max-width);
   width: calc(100% - var(--spacing)*2);
   margin: var(--spacing) auto;
-  padding: 8rem calc(var(--spacing)*2); /* more padding */
+  padding: 8rem calc(var(--spacing)*2); /* generous padding */
   min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
   background: linear-gradient(
     135deg,
     var(--tertiary)   0%,
     var(--secondary) 60%,
     var(--primary)   100%
-  ); /* gradient in hero */
-  color: #fff; /* hero text always white */
+  );
+  color: #fff; /* headline remains white */
   border-radius: 20px;
   box-shadow: 0 16px 64px rgba(0,0,0,0.1);
-  overflow: hidden;  /* clip the wave */
+  overflow: hidden;  
 }
-.hero-container h1,
+.hero-container h1 {
+  font-size: 3rem; margin-bottom: 1rem; /* white by default */
+}
 .hero-container p {
-  margin-bottom: 1rem;
-}
-.hero-container .wave {
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 200%;
-  height: 100px;
-  background: var(--glass-bg);
-  border-radius: 40% 60% 55% 45%;
-  animation: wave 10s linear infinite;
-  z-index: 0;
-}
-.hero-container > *:not(.wave) {
-  position: relative;
-  z-index: 1;
-}
-@keyframes wave {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  font-size: 1.2rem; margin-bottom: 1.5rem;
+  color: var(--text-body); /* dark grey for contrast */
 }
 
 /* SECTION WRAPPER */
@@ -261,59 +210,39 @@ h1, h2, a {
   margin: 4rem auto;
 }
 .section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  color: var(--text-head);
-  text-align: center;
+  font-size: 2.5rem; margin-bottom: 1.5rem;
+  color: var(--text-head); text-align: center;
 }
 
 /* ABOUT */
 .about-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
+  display: flex; flex-wrap: wrap; gap: 2rem;
 }
 .about-text {
-  flex: 2 1 300px;
-  padding: 1.5rem;
+  flex: 2 1 300px; padding: 1.5rem;
 }
 .about-metrics {
-  flex: 1 1 200px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  flex: 1 1 200px; display: flex; flex-direction: column; gap: 1rem;
 }
 .metric {
-  padding: 1rem;
-  text-align: center;
-  background: var(--glass-bg);
-  backdrop-filter: blur(15px);
-  border-radius: 12px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 1rem; text-align: center;
+  background: var(--glass-bg); backdrop-filter: blur(15px);
+  border-radius: 12px; transition: transform 0.3s, box-shadow 0.3s;
 }
 .metric:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 32px rgba(0,0,0,0.1);
 }
-.metric h3 {
-  margin-bottom: 0.5rem;
-  color: var(--text-head);
-}
+.metric h3 { margin-bottom: 0.5rem; color: var(--text-head); }
 
 /* SKILLS */
 .skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;
   list-style: none;
 }
 .skills-list li {
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  padding: 0.75rem 1.25rem;
-  border-radius: 8px;
-  font-weight: 600;
+  background: var(--glass-bg); backdrop-filter: blur(20px);
+  padding: 0.75rem 1.25rem; border-radius: 8px; font-weight: 600;
   transition: background 0.3s, transform 0.3s;
 }
 .skills-list li:hover {
@@ -323,15 +252,12 @@ h1, h2, a {
 
 /* PORTFOLIO */
 .projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
   gap: 1.5rem;
 }
 .project {
-  padding: 1.5rem;
-  border-radius: 12px;
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
+  padding: 1.5rem; border-radius: 12px;
+  background: var(--glass-bg); backdrop-filter: blur(20px);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .project:hover {
@@ -341,31 +267,20 @@ h1, h2, a {
 
 /* CONTACT */
 .contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 600px;
-  margin: 0 auto;
+  display: flex; flex-direction: column; gap: 1rem;
+  max-width: 600px; margin: 0 auto;
 }
 .contact-form input,
 .contact-form textarea {
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
+  padding: 0.75rem 1rem; border-radius: 8px;
   border: 1px solid var(--glass-border);
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  color: var(--text-body);
-  font-size: 1rem;
+  background: var(--glass-bg); backdrop-filter: blur(20px);
+  color: var(--text-body); font-size: 1rem;
 }
 .contact-form button {
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 8px;
-  background: var(--btn-bg);
-  color: #fff;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
+  padding: 0.75rem 1.5rem; border: none; border-radius: 8px;
+  background: var(--btn-bg); color: #fff; font-weight: 600;
+  cursor: pointer; transition: background 0.3s, transform 0.3s;
 }
 .contact-form button:hover {
   background: var(--btn-hover);
@@ -376,12 +291,8 @@ h1, h2, a {
 .footer {
   max-width: var(--max-width);
   width: calc(100% - var(--spacing)*2);
-  margin: 4rem auto;
-  padding: 2rem;
+  margin: 4rem auto; padding: 2rem;
   text-align: center;
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  border-radius: 20px;
-  font-size: 0.9rem;
-  color: var(--text-body);
+  background: var(--glass-bg); backdrop-filter: blur(20px);
+  border-radius: 20px; font-size: 0.9rem; color: var(--text-body);
 }
