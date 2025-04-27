@@ -1,40 +1,40 @@
-/* styles.css v2.3 */
+/* styles.css v3.0 */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Background gradient */
-  --bg-start:        #E0ECFF;
-  --bg-mid:          #F5EFFF;
-  --bg-end:          #D5D9FF;
+  /* Site background gradient */
+  --bg-start:        #F0F8FF;  /* pale sky blue */
+  --bg-mid:          #E6F7FF;  /* very light lavender */
+  --bg-end:          #D0EFFA;  /* cool pastel periwinkle */
 
-  /* Glass tint & border */
+  /* Frosted-glass tint & border */
   --glass-bg:        rgba(255,255,255,0.25);
-  --glass-border:    rgba(255,255,255,0.4);
+  --glass-border:    rgba(255,255,255,0.5);
 
-  /* Accent for link hovers */
-  --accent-secondary:#00D1FF;
+  /* Accent colors */
+  --accent-primary:  #0077B6;  /* deep vibrant blue */
+  --accent-hover:    #005F87;  /* darker blue */
+  --accent-secondary:#00B4D8;  /* energetic cyan */
 
-  /* Button colors → deep navy */
-  --btn-bg:          #2C3E50;
-  --btn-hover:       #1A2833;
+  /* Text */
+  --text-body:       #333333;  /* dark gray for body text */
+  --text-headline:   #023047;  /* deep navy for headings & links */
 
-  /* Text colors */
-  --text-body:       #333333;
-  --text-headline:   #2C3E50;
-
-  /* Layout */
+  /* Layout tokens */
   --nav-height:      70px;
   --max-width:       1000px;
   --spacing:         2rem;
 }
 
+/* Smooth scrolling + anchor offset */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--nav-height);
 }
 *, *::before, *::after {
-  margin: 0; padding: 0; box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0; padding: 0;
 }
 
 body {
@@ -48,15 +48,15 @@ body {
   color: var(--text-body);
 }
 
-/* Headlines & links */
+/* Headings & links */
 h1, h2, a {
   color: var(--text-headline);
 }
 
-/* Fade‐in animation */
+/* Fade-in sections */
 .fade-in-section {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 .fade-in-section.visible {
@@ -64,7 +64,7 @@ h1, h2, a {
   transform: translateY(0);
 }
 
-/* Glass panel */
+/* Frosted-glass panel */
 .glass {
   background: var(--glass-bg);
   backdrop-filter: blur(25px);
@@ -77,30 +77,43 @@ h1, h2, a {
 
 /* NAVBAR */
 .navbar {
-  position: fixed; top: 20px; left: 0; width: 100%; z-index: 100;
+  position: fixed;
+  top: 20px; left: 0;
+  width: 100%;
+  z-index: 100;
 }
 .nav-container {
   max-width: var(--max-width);
   width: calc(100% - var(--spacing)*2);
   margin: 0 auto;
   padding: 0.75rem var(--spacing);
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .logo {
-  font-weight: 700; font-size: 1.2rem; text-transform: none;
+  font-weight: 700;
+  font-size: 1.2rem;
+  /* normal case for your name */
+  text-transform: none;
 }
 
 /* Hamburger (slider style) */
 .menu-icon.hamburger {
   display: none; /* mobile only */
-  flex-direction: column; justify-content: space-between;
-  width: 30px; height: 24px; background: transparent; border: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px; height: 24px;
+  background: transparent; border: none;
   cursor: pointer; padding: 0; z-index: 1000;
 }
 .menu-icon.hamburger span {
-  display: block; width: 100%; height: 3px;
-  background: rgba(0,0,0,0.4); border-radius: 2px;
-  transition: all 0.5s ease-in-out; transform-origin: center center;
+  display: block;
+  width: 100%; height: 3px;
+  background: rgba(0,0,0,0.4);
+  border-radius: 2px;
+  transition: all 0.5s ease-in-out;
+  transform-origin: center;
 }
 .menu-icon.hamburger.is-active span:nth-child(1) {
   transform: translateY(10px) rotate(45deg);
@@ -114,11 +127,16 @@ h1, h2, a {
 
 /* Desktop nav links */
 .nav-links {
-  display: flex; gap: 1.5rem; list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
 }
 .nav-links a {
-  text-decoration: none; font-weight: 600; color: var(--text-body);
-  padding: 0.5rem 0.75rem; border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--text-body);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
   transition: background 0.3s, color 0.3s;
 }
 .nav-links a:hover {
@@ -126,18 +144,18 @@ h1, h2, a {
   color: #fff;
 }
 
-/* Buttons (nav and hero) */
-.nav-btn, .btn {
-  background: var(--btn-bg);
-  color: #fff;
-  border-radius: 8px;
-  padding: 0.75rem 1.5rem;
+/* Buttons */
+.btn, .nav-btn {
   text-decoration: none;
   display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--accent-primary);
+  color: #fff;
+  border-radius: 8px;
   transition: background 0.3s, transform 0.3s;
 }
-.nav-btn:hover, .btn:hover {
-  background: var(--btn-hover);
+.btn:hover, .nav-btn:hover {
+  background: var(--accent-hover);
   transform: translateY(-2px);
 }
 
@@ -155,7 +173,7 @@ h1, h2, a {
     top: 0; left: 0;
     width: 100%; height: 100vh;
     background: rgba(255,255,255,0.3);
-    backdrop-filter: blur(240px);
+    backdrop-filter: blur(240px); /* heavy blur for contrast */
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -164,7 +182,8 @@ h1, h2, a {
     animation: menuFadeIn 0.4s ease-out forwards;
   }
   .nav-links a {
-    font-size: 2rem; color: var(--text-body);
+    font-size: 2rem;
+    color: var(--text-body);
   }
 }
 
@@ -178,7 +197,8 @@ h1, h2, a {
 .hero {
   background: transparent;
   display: flex; align-items: center; justify-content: center;
-  min-height: 100vh; margin-top: var(--nav-height);
+  min-height: 100vh;
+  margin-top: var(--nav-height);
 }
 .hero-container {
   max-width: var(--max-width);
@@ -189,35 +209,38 @@ h1, h2, a {
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   text-align: center;
-  background: linear-gradient(
-    135deg, var(--bg-start) 0%, var(--bg-mid) 60%, var(--bg-end) 100%
-  );
+  /* now also a glass panel */
+  background: var(--glass-bg);
   backdrop-filter: blur(25px);
   border: 1px solid var(--glass-border);
   border-radius: 20px;
   box-shadow: 0 16px 64px rgba(0,0,0,0.1);
 }
-/* Hero headline & text now dark gray */
 .hero-container h1,
 .hero-container p {
+  /* hero copy in dark gray for contrast */
   color: var(--text-body);
 }
 .hero-container h1 {
-  font-size: 3rem; margin-bottom: 1rem;
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 .hero-container p {
-  font-size: 1.2rem; margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
 }
 
-/* SECTION WRAPPER */
+/* SECTIONS */
 .section {
   padding: 4rem var(--spacing);
   max-width: var(--max-width);
   margin: 4rem auto;
 }
 .section h2 {
-  font-size: 2.5rem; margin-bottom: 1.5rem;
-  color: var(--text-headline); text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-headline);
+  text-align: center;
 }
 
 /* ABOUT */
@@ -232,8 +255,9 @@ h1, h2, a {
 }
 .metric {
   padding: 1rem; text-align: center;
-  background: rgba(220,201,236,0.4);
-  backdrop-filter: blur(15px); border-radius: 12px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(15px);
+  border-radius: 12px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .metric:hover {
@@ -241,7 +265,8 @@ h1, h2, a {
   box-shadow: 0 8px 32px rgba(0,0,0,0.1);
 }
 .metric h3 {
-  margin-bottom: 0.5rem; color: var(--text-headline);
+  margin-bottom: 0.5rem;
+  color: var(--text-headline);
 }
 
 /* SKILLS */
@@ -250,8 +275,11 @@ h1, h2, a {
   list-style: none;
 }
 .skills-list li {
-  background: var(--glass-bg); backdrop-filter: blur(20px);
-  padding: 0.75rem 1.25rem; border-radius: 8px; font-weight: 600;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
   transition: background 0.3s, transform 0.3s;
 }
 .skills-list li:hover {
@@ -267,7 +295,8 @@ h1, h2, a {
 }
 .project {
   padding: 1.5rem; border-radius: 12px;
-  background: var(--glass-bg); backdrop-filter: blur(20px);
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .project:hover {
