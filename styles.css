@@ -133,6 +133,11 @@ p {
   transition: background var(--transition-speed);
 }
 
+.skill:hover, .portfolio-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+}
+
 body.dark-mode .skill,
 body.dark-mode .portfolio-item {
   background: var(--glass-bg-dark);
