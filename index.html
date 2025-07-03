@@ -5,125 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jeter Cotton | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --glass-bg: rgba(255, 255, 255, 0.15);
-      --border-color: rgba(255, 255, 255, 0.3);
-      --text-color: #ffffff;
-      --gradient-light: radial-gradient(ellipse at top left, #d1e8ff, #ffffff);
-      --gradient-dark: radial-gradient(ellipse at top left, #1a1a1a, #333333);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'SF Pro Display', sans-serif;
-    }
-
-    body {
-      background: var(--gradient-light);
-      color: var(--text-color);
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    .dark-mode {
-      background: var(--gradient-dark);
-      color: #eaeaea;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      backdrop-filter: blur(10px);
-      background: var(--glass-bg);
-      border-bottom: 1px solid var(--border-color);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    nav a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .toggle {
-      cursor: pointer;
-      width: 40px;
-      height: 20px;
-      background: #999;
-      border-radius: 20px;
-      position: relative;
-    }
-
-    .toggle::after {
-      content: '';
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      width: 16px;
-      height: 16px;
-      background: white;
-      border-radius: 50%;
-      transition: 0.3s;
-    }
-
-    .dark-mode .toggle::after {
-      left: 22px;
-    }
-
-    section {
-      margin: 2rem auto;
-      max-width: 960px;
-      padding: 2rem;
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      border-radius: 24px;
-      border: 1px solid var(--border-color);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    }
-
-    h1, h2 {
-      margin-bottom: 1rem;
-    }
-
-    .skills, .portfolio-items {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .skill, .portfolio-item {
-      background: var(--glass-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 1rem 2rem;
-      backdrop-filter: blur(10px);
-      flex: 1 1 40%;
-      text-align: center;
-    }
-
-    .cta-button {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.75rem 1.5rem;
-      background: rgba(255, 255, 255, 0.25);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      backdrop-filter: blur(8px);
-      color: inherit;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-
-    .cta-button:hover {
-      background: rgba(255, 255, 255, 0.35);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
@@ -136,40 +18,50 @@
     <div class="toggle" onclick="toggleMode()"></div>
   </header>
 
-  <section id="hero">
-    <h1>Hi, I’m Jeter Cotton</h1>
-    <p>I build strategy-driven digital experiences with polish and purpose.</p>
-    <a href="#contact" class="cta-button">Get In Touch</a>
-  </section>
+  <div class="section-wrapper">
+    <section id="hero">
+      <h1>Hi, I’m Jeter Cotton</h1>
+      <p>I build strategy-driven digital experiences with polish and purpose.</p>
+      <a href="#contact" class="cta-button">Get In Touch</a>
+    </section>
+  </div>
 
-  <section id="about">
-    <h2>About</h2>
-    <p>I’m a project manager and operations strategist who brings order and momentum to creative work.</p>
-  </section>
+  <div class="section-wrapper">
+    <section id="about">
+      <h2>About</h2>
+      <p>I’m a project manager and operations strategist who brings order and momentum to creative work.</p>
+    </section>
+  </div>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills">
-      <div class="skill">Project Management</div>
-      <div class="skill">Operations Strategy</div>
-      <div class="skill">ClickUp Mastery</div>
-      <div class="skill">Process Design</div>
-    </div>
-  </section>
+  <div class="section-wrapper">
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill">Project Management</div>
+        <div class="skill">Operations Strategy</div>
+        <div class="skill">ClickUp Mastery</div>
+        <div class="skill">Process Design</div>
+      </div>
+    </section>
+  </div>
 
-  <section id="portfolio">
-    <h2>Portfolio</h2>
-    <div class="portfolio-items">
-      <div class="portfolio-item">Primitive PM System</div>
-      <div class="portfolio-item">Personal Site Architecture</div>
-      <div class="portfolio-item">Sprint Planning Dashboard</div>
-    </div>
-  </section>
+  <div class="section-wrapper">
+    <section id="portfolio">
+      <h2>Portfolio</h2>
+      <div class="portfolio-items">
+        <div class="portfolio-item">Primitive PM System</div>
+        <div class="portfolio-item">Personal Site Architecture</div>
+        <div class="portfolio-item">Sprint Planning Dashboard</div>
+      </div>
+    </section>
+  </div>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: jeter@example.com</p>
-  </section>
+  <div class="section-wrapper">
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: jeter@example.com</p>
+    </section>
+  </div>
 
   <script>
     function toggleMode() {
