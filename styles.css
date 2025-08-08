@@ -22,11 +22,11 @@
   --text-dark: #0a0a0a;
   --text-light: #eaeaea;
   /* Background accents used on body */
-  --accent-light: radial-gradient(circle at top left, #f7fbff, #ffffff);
-  --accent-dark: radial-gradient(circle at bottom right, #1a1a1a, #2e2e2e);
-  /* Secondary colour for highlights – changed from blue to a sleek grey
+  --accent-light: linear-gradient(135deg, #f7f8fa 0%, #edeff2 100%);
+  --accent-dark: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  /* Secondary colour for highlights – changed from blue to a darker grey
      to give the site a more premium, understated feel */
-  --secondary: #7f8c8d;
+  --secondary: #5d5d61;
   /* Animation timing */
   --transition: 0.3s ease;
 }
@@ -49,6 +49,13 @@ body {
   transition: background var(--transition), color var(--transition);
   line-height: 1.6;
   overflow-x: hidden;
+
+  /*
+    Add top padding equal to the approximate height of the fixed navbar.  Without this
+    padding the hero and subsequent sections would slide underneath the nav when
+    scrolling.  Adjust this value if you change the navbar's height.
+  */
+  padding-top: 80px;
 }
 
 body.dark-mode {
@@ -65,9 +72,15 @@ body.dark-mode {
   backdrop-filter: blur(12px);
   background: var(--glass-light);
   border-bottom: 1px solid var(--border-light);
-  position: sticky;
+  /*
+    Make the navbar fixed so it remains visible as the user scrolls.
+    A fixed position ensures the nav stays pinned to the top of the viewport.
+  */
+  position: fixed;
   top: 0;
-  z-index: 100;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
   border-radius: 0 0 24px 24px;
   box-shadow: var(--shadow);
 }
@@ -171,10 +184,11 @@ body.dark-mode .toggle-mode::after {
 @media (max-width: 768px) {
   .nav-links {
     position: fixed;
-    top: 70px;
+    top: 80px;
     right: -100%;
     width: 70%;
-    height: calc(100vh - 70px);
+    /* Adjust the height to account for the slightly taller fixed navbar */
+    height: calc(100vh - 80px);
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -209,14 +223,15 @@ body.dark-mode .toggle-mode::after {
 
 /* Section wrapper provides spacing */
 .section-wrapper {
-  padding: 4rem 1rem;
+  /* Reduce vertical padding to tighten spacing between sections */
+  padding: 3rem 1rem;
 }
 
 /* Base section styles */
 .section {
   max-width: 1000px;
-  margin: 0 auto 4rem;
-  padding: 3rem 2rem;
+  margin: 0 auto 3rem;
+  padding: 2.5rem 2rem;
   border-radius: 24px;
   box-shadow: var(--shadow);
   backdrop-filter: blur(20px);
@@ -261,6 +276,8 @@ body.dark-mode .section {
   z-index: -1;
   /* Darken the video slightly so text remains legible */
   filter: brightness(0.6);
+  /* Round the corners of the hero video to echo the glass panels */
+  border-radius: 24px;
 }
 
 body.dark-mode .hero-video {
@@ -275,17 +292,35 @@ body.dark-mode .hero-video {
   max-width: 800px;
   margin: 0 1rem;
   padding: 2rem;
+
+  /* Use light text colours on top of the darkened video to improve contrast. */
+  color: var(--text-light);
 }
 
+/* Override text colour for headings and paragraphs inside the hero so they remain legible in both modes */
+.hero-content h1,
+.hero-content p {
+  color: var(--text-light);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.hero-content .cta-button {
+  /* Ensure the call‑to‑action stands out against the video */
+  color: #ffffff;
+}
+
+/* Reset flex behaviour on the about section itself; the layout is handled by
+   the .about-content container instead. Leaving this rule empty prevents
+   inheritance of unwanted flex properties on larger screens. */
 .about-section {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  display: block;
 }
 
 @media (min-width: 768px) {
   .about-section .about-content {
+    /* Arrange the about text and image side by side on larger screens */
     display: flex;
+    flex-direction: row;
     gap: 2rem;
     align-items: center;
   }
@@ -352,6 +387,17 @@ p {
   flex-direction: column;
   gap: 2rem;
   align-items: center;
+}
+
+/* On larger screens, arrange the about section content in a row so the text
+   and image sit side by side. This override is placed after the default
+   column layout to ensure it takes precedence. */
+@media (min-width: 768px) {
+  .about-content {
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+  }
 }
 
 .about-text {
