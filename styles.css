@@ -24,8 +24,9 @@
   /* Background accents used on body */
   --accent-light: radial-gradient(circle at top left, #f7fbff, #ffffff);
   --accent-dark: radial-gradient(circle at bottom right, #1a1a1a, #2e2e2e);
-  /* Secondary colour for highlights */
-  --secondary: #4da8da;
+  /* Secondary colour for highlights – changed from blue to a sleek grey
+     to give the site a more premium, understated feel */
+  --secondary: #7f8c8d;
   /* Animation timing */
   --transition: 0.3s ease;
 }
@@ -128,6 +129,12 @@ body.dark-mode .logo {
   cursor: pointer;
 }
 
+/* Animate the hamburger icon when active */
+.menu-icon.is-active ion-icon {
+  transform: rotate(90deg);
+  transition: transform var(--transition);
+}
+
 .toggle-mode {
   margin-left: 1rem;
   cursor: pointer;
@@ -225,8 +232,49 @@ body.dark-mode .section {
 
 /* Section specific styles to add variety */
 .hero-section {
+  /*
+    The hero section becomes a full‑viewport container.  It uses
+    position:relative and removes card borders so the video can
+    fill the entire area.  Content is centered on top of the video.
+  */
+  position: relative;
+  height: 100vh;
+  margin-bottom: 4rem;
+  padding: 0;
+  border: none;
+  box-shadow: none;
   text-align: center;
-  background: linear-gradient(135deg, var(--glass-light), rgba(255, 255, 255, 0.4));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Background video styling for the hero */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  /* Darken the video slightly so text remains legible */
+  filter: brightness(0.6);
+}
+
+body.dark-mode .hero-video {
+  /* Darken further in dark mode */
+  filter: brightness(0.4);
+}
+
+/* Container for hero text and call‑to‑action */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 1rem;
+  padding: 2rem;
 }
 
 .about-section {
@@ -443,6 +491,9 @@ body.dark-mode .portfolio-img {
   color: inherit;
   outline: none;
   transition: border var(--transition), background var(--transition);
+
+  /* Add a subtle outline to differentiate fields on light backgrounds */
+  outline: 1px solid var(--border-light);
 }
 
 body.dark-mode .form-group input,
@@ -455,6 +506,8 @@ body.dark-mode .form-group textarea {
 .form-group textarea:focus {
   border-color: var(--secondary);
   background: rgba(255, 255, 255, 0.25);
+  /* Emphasise focus with secondary colour outline */
+  outline: 2px solid var(--secondary);
 }
 
 body.dark-mode .form-group input:focus,
@@ -477,7 +530,7 @@ body.dark-mode .form-group textarea:focus {
 }
 
 .cta-button:hover {
-  background: darken(var(--secondary), 8%);
+  /* Use only the box shadow here; colour will be adjusted by the filter in the next rule */
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
@@ -496,4 +549,24 @@ body.dark-mode .form-group textarea:focus {
 .fade-in-section.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Footer styling */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  background: var(--glass-light);
+  border-top: 1px solid var(--border-light);
+  backdrop-filter: blur(12px);
+  border-radius: 24px 24px 0 0;
+  box-shadow: var(--shadow);
+}
+
+body.dark-mode footer {
+  color: var(--text-light);
+  background: var(--glass-dark);
+  border-color: var(--border-dark);
 }

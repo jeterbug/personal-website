@@ -41,12 +41,35 @@
     <!-- Content sections -->
     <div class="section-wrapper">
       <!-- Hero Section -->
-      <section id="hero" class="section hero-section fade-in-section">
-        <h1>Hi, I'm Jeter Cotton</h1>
-        <p>
-          I build strategy-driven digital experiences with polish and purpose.
-        </p>
-        <a href="#contact" class="cta-button">Get In Touch</a>
+      <!--
+        The hero now features a full‑bleed video background pulled from a free
+        nature stock resource. A semi‑transparent content overlay keeps the
+        heading and call‑to‑action legible on top of the moving video. The
+        section height is increased so the hero feels immersive on larger
+        screens.
+      -->
+      <!--
+        The hero section now uses a full‑bleed background video.  It omits
+        the generic "section" class so the glassmorphic card styling
+        doesn't interfere with the immersive layout.  The content sits
+        above the video in its own container so text remains legible.  A
+        free nature clip is streamed directly from FreeNatureStock to avoid
+        hosting large media files in the repository.
+      -->
+      <section id="hero" class="hero-section fade-in-section">
+        <video
+          class="hero-video"
+          src="https://freenaturestock.com/wp-content/uploads/freenaturestock-illuminated-leaf-texture.mp4"
+          autoplay
+          loop
+          muted
+          playsinline
+        ></video>
+        <div class="hero-content">
+          <h1>Hi, I'm Jeter Cotton</h1>
+          <p>I build strategy‑driven digital experiences with polish and purpose.</p>
+          <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
       </section>
 
       <!-- About Section -->
@@ -69,10 +92,12 @@
             </p>
           </div>
           <div class="about-image">
-            <!-- Replace src with your own photo -->
+            <!-- Personal headshot provided by the user, cropped for a square
+                 presentation. The image lives in the assets folder of the
+                 repository. -->
             <img
-              src="your-photo.jpg"
-              alt="Jeter Cotton"
+              src="cropped_about.jpg"
+              alt="Jeter Cotton headshot"
               width="300"
               height="300"
             />
@@ -124,8 +149,8 @@
           <!-- Portfolio item 1 -->
           <div class="portfolio-item">
             <img
-              src="project1.jpg"
-              alt="Project 1"
+              src="https://picsum.photos/id/1018/400/300"
+              alt="Stock nature image 1"
               class="portfolio-img"
             />
             <h3>Project One</h3>
@@ -137,8 +162,8 @@
           <!-- Portfolio item 2 -->
           <div class="portfolio-item">
             <img
-              src="project2.jpg"
-              alt="Project 2"
+              src="https://picsum.photos/id/1015/400/300"
+              alt="Stock nature image 2"
               class="portfolio-img"
             />
             <h3>Project Two</h3>
@@ -150,8 +175,8 @@
           <!-- Portfolio item 3 -->
           <div class="portfolio-item">
             <img
-              src="project3.jpg"
-              alt="Project 3"
+              src="https://picsum.photos/id/1035/400/300"
+              alt="Stock nature image 3"
               class="portfolio-img"
             />
             <h3>Project Three</h3>
@@ -199,6 +224,11 @@
         </form>
       </section>
     </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2025 Jeter Cotton. Built with passion and creativity.</p>
+    </footer>
 
     <!-- Script to handle menu toggle, smooth scrolling and dark mode -->
     <script src="script.js"></script>

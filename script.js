@@ -13,6 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
   menuIcon.addEventListener('click', () => {
     navLinks.classList.toggle('active');
     menuIcon.classList.toggle('is-active');
+    // Swap the icon between menu and close when active
+    const icon = menuIcon.querySelector('ion-icon');
+    if (menuIcon.classList.contains('is-active')) {
+      icon.setAttribute('name', 'close-outline');
+    } else {
+      icon.setAttribute('name', 'menu-outline');
+    }
   });
 
   // Smooth scroll to target section and close the menu on link click
