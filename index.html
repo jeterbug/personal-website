@@ -1,72 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jeter Cotton | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="toggle" onclick="toggleMode()"></div>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jeter Cotton | Portfolio</title>
+    <!-- Typography -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Ionicons for premium icons -->
+    <script type="module" src="https://unpkg.com/ionicons@6.0.3/dist/ionicons.esm.js"></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@6.0.3/dist/ionicons.js"
+    ></script>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Header with navigation -->
+    <header>
+      <nav class="navbar">
+        <div class="logo">Jeter Cotton</div>
+        <button class="menu-icon" id="menu-icon" aria-label="Toggle menu">
+          <ion-icon name="menu-outline"></ion-icon>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <!-- Dark mode toggle -->
+        <button class="toggle-mode" id="toggle-mode" aria-label="Toggle dark mode"></button>
+      </nav>
+    </header>
 
-  <div class="section-wrapper">
-    <section id="hero">
-      <h1>Hi, I’m Jeter Cotton</h1>
-      <p>I build strategy-driven digital experiences with polish and purpose.</p>
-      <a href="#contact" class="cta-button">Get In Touch</a>
-    </section>
-  </div>
+    <!-- Content sections -->
+    <div class="section-wrapper">
+      <!-- Hero Section -->
+      <section id="hero" class="section hero-section fade-in-section">
+        <h1>Hi, I'm Jeter Cotton</h1>
+        <p>
+          I build strategy-driven digital experiences with polish and purpose.
+        </p>
+        <a href="#contact" class="cta-button">Get In Touch</a>
+      </section>
 
-  <div class="section-wrapper">
-    <section id="about">
-      <h2>About</h2>
-      <p>I’m a project manager and operations strategist who brings order and momentum to creative work.</p>
-    </section>
-  </div>
+      <!-- About Section -->
+      <section id="about" class="section about-section fade-in-section">
+        <div class="section-header">
+          <ion-icon name="person-outline"></ion-icon>
+          <h2>About Me</h2>
+        </div>
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              I’m a multidisciplinary designer and creative technologist based in
+              Texas. My passion is crafting digital experiences that feel both
+              intuitive and delightful.
+            </p>
+            <p>
+              I love bridging the gap between design and development, and I
+              strive to create products that empower users and bring brands to
+              life.
+            </p>
+          </div>
+          <div class="about-image">
+            <!-- Replace src with your own photo -->
+            <img
+              src="your-photo.jpg"
+              alt="Jeter Cotton"
+              width="300"
+              height="300"
+            />
+          </div>
+        </div>
+      </section>
 
-  <div class="section-wrapper">
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="skills">
-        <div class="skill">Project Management</div>
-        <div class="skill">Operations Strategy</div>
-        <div class="skill">ClickUp Mastery</div>
-        <div class="skill">Process Design</div>
-      </div>
-    </section>
-  </div>
+      <!-- Skills Section -->
+      <section id="skills" class="section skills-section fade-in-section">
+        <div class="section-header">
+          <ion-icon name="rocket-outline"></ion-icon>
+          <h2>Skills</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <ion-icon name="code-slash-outline"></ion-icon>
+            <h3>Front‑End Development</h3>
+            <p>
+              Building responsive interfaces with HTML, CSS, JavaScript, and
+              modern frameworks.
+            </p>
+          </div>
+          <div class="skill-card">
+            <ion-icon name="brush-outline"></ion-icon>
+            <h3>Product Design</h3>
+            <p>
+              Crafting user experiences, design systems and brand identities
+              rooted in strategy.
+            </p>
+          </div>
+          <div class="skill-card">
+            <ion-icon name="analytics-outline"></ion-icon>
+            <h3>Strategy &amp; Research</h3>
+            <p>
+              Conducting research, defining product strategy and telling
+              compelling stories.
+            </p>
+          </div>
+        </div>
+      </section>
 
-  <div class="section-wrapper">
-    <section id="portfolio">
-      <h2>Portfolio</h2>
-      <div class="portfolio-items">
-        <div class="portfolio-item">Primitive PM System</div>
-        <div class="portfolio-item">Personal Site Architecture</div>
-        <div class="portfolio-item">Sprint Planning Dashboard</div>
-      </div>
-    </section>
-  </div>
+      <!-- Portfolio Section -->
+      <section id="portfolio" class="section portfolio-section fade-in-section">
+        <div class="section-header">
+          <ion-icon name="briefcase-outline"></ion-icon>
+          <h2>Portfolio</h2>
+        </div>
+        <div class="portfolio-grid">
+          <!-- Portfolio item 1 -->
+          <div class="portfolio-item">
+            <img
+              src="project1.jpg"
+              alt="Project 1"
+              class="portfolio-img"
+            />
+            <h3>Project One</h3>
+            <p>
+              A short description of this project, highlighting the core
+              features and technologies used.
+            </p>
+          </div>
+          <!-- Portfolio item 2 -->
+          <div class="portfolio-item">
+            <img
+              src="project2.jpg"
+              alt="Project 2"
+              class="portfolio-img"
+            />
+            <h3>Project Two</h3>
+            <p>
+              A short description of this project, highlighting the core
+              features and technologies used.
+            </p>
+          </div>
+          <!-- Portfolio item 3 -->
+          <div class="portfolio-item">
+            <img
+              src="project3.jpg"
+              alt="Project 3"
+              class="portfolio-img"
+            />
+            <h3>Project Three</h3>
+            <p>
+              A short description of this project, highlighting the core
+              features and technologies used.
+            </p>
+          </div>
+        </div>
+      </section>
 
-  <div class="section-wrapper">
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: jeter@example.com</p>
-    </section>
-  </div>
+      <!-- Contact Section -->
+      <section id="contact" class="section contact-section fade-in-section">
+        <div class="section-header">
+          <ion-icon name="mail-outline"></ion-icon>
+          <h2>Contact</h2>
+        </div>
+        <p>
+          I’d love to hear from you! Feel free to reach out using the form
+          below.
+        </p>
+        <form
+          action="https://formspree.io/f/mwkzgonl"
+          method="POST"
+          class="contact-form"
+        >
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="cta-button">Send Message</button>
+        </form>
+      </section>
+    </div>
 
-  <script>
-    function toggleMode() {
-      document.body.classList.toggle('dark-mode');
-    }
-  </script>
-</body>
+    <!-- Script to handle menu toggle, smooth scrolling and dark mode -->
+    <script src="script.js"></script>
+  </body>
 </html>

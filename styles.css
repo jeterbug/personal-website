@@ -1,16 +1,36 @@
+/*
+ * Portfolio Website – Glassmorphic dark/light theme with secondary accent
+ *
+ * This stylesheet defines the visual language for the portfolio site.  It
+ * introduces a secondary accent colour to complement the minimal glass
+ * surfaces, adds layout variations for each section, and implements
+ * responsive navigation with a hamburger menu on mobile.  Smooth scroll
+ * behaviour and subtle animations make the site feel premium.
+ */
+
+/* CSS custom properties for colours and effects */
 :root {
+  /* Glass backgrounds for light and dark modes */
   --glass-light: rgba(255, 255, 255, 0.25);
   --glass-dark: rgba(30, 30, 30, 0.35);
+  /* Borders for glass panels */
   --border-light: rgba(255, 255, 255, 0.3);
   --border-dark: rgba(255, 255, 255, 0.1);
+  /* Drop shadow for depth */
   --shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  /* Primary text colours */
   --text-dark: #0a0a0a;
   --text-light: #eaeaea;
-  --accent-light: radial-gradient(circle at top left, #eaf6ff, #ffffff);
+  /* Background accents used on body */
+  --accent-light: radial-gradient(circle at top left, #f7fbff, #ffffff);
   --accent-dark: radial-gradient(circle at bottom right, #1a1a1a, #2e2e2e);
+  /* Secondary colour for highlights */
+  --secondary: #4da8da;
+  /* Animation timing */
   --transition: 0.3s ease;
 }
 
+/* Global styles */
 * {
   margin: 0;
   padding: 0;
@@ -18,11 +38,16 @@
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--accent-light);
   color: var(--text-dark);
   transition: background var(--transition), color var(--transition);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 body.dark-mode {
@@ -30,94 +55,225 @@ body.dark-mode {
   color: var(--text-light);
 }
 
-header {
+/* Navigation bar */
+.navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 1rem 2rem;
   backdrop-filter: blur(12px);
   background: var(--glass-light);
   border-bottom: 1px solid var(--border-light);
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 100;
   border-radius: 0 0 24px 24px;
   box-shadow: var(--shadow);
 }
 
-body.dark-mode header {
+body.dark-mode .navbar {
   background: var(--glass-dark);
   border-color: var(--border-dark);
 }
 
-nav a {
-  margin: 0 1rem;
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--text-dark);
+}
+
+body.dark-mode .logo {
+  color: var(--text-light);
+}
+
+/* Navigation links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li a {
   text-decoration: none;
   color: inherit;
   font-weight: 500;
   position: relative;
 }
 
-nav a:hover {
-  text-decoration: underline;
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background: var(--secondary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--transition);
 }
 
-.toggle {
+.nav-links li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Mobile navigation */
+.menu-icon {
+  display: none;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.toggle-mode {
+  margin-left: 1rem;
   cursor: pointer;
   width: 40px;
   height: 20px;
   background: #999;
   border-radius: 20px;
+  border: none;
   position: relative;
   transition: background var(--transition);
 }
 
-.toggle::after {
+.toggle-mode::after {
   content: '';
   position: absolute;
   top: 2px;
   left: 2px;
   width: 16px;
   height: 16px;
-  background: white;
+  background: #fff;
   border-radius: 50%;
   transition: var(--transition);
 }
 
-body.dark-mode .toggle {
+body.dark-mode .toggle-mode {
   background: #555;
 }
 
-body.dark-mode .toggle::after {
+body.dark-mode .toggle-mode::after {
   left: 22px;
 }
 
+/* Responsive behaviour */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    width: 70%;
+    height: calc(100vh - 70px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    background: var(--glass-light);
+    backdrop-filter: blur(16px);
+    border-left: 1px solid var(--border-light);
+    transition: right var(--transition);
+  }
+
+  body.dark-mode .nav-links {
+    background: var(--glass-dark);
+    border-color: var(--border-dark);
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-links li {
+    margin: 0;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+}
+
+/* Section wrapper provides spacing */
 .section-wrapper {
   padding: 4rem 1rem;
-  background: var(--accent-light);
 }
 
-body.dark-mode .section-wrapper {
-  background: var(--accent-dark);
-}
-
-section {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 2rem;
-  background: var(--glass-light);
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--border-light);
+/* Base section styles */
+.section {
+  max-width: 1000px;
+  margin: 0 auto 4rem;
+  padding: 3rem 2rem;
   border-radius: 24px;
   box-shadow: var(--shadow);
-  transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-light);
+  background: var(--glass-light);
+  transition: background var(--transition), border var(--transition);
 }
 
-body.dark-mode section {
+body.dark-mode .section {
   background: var(--glass-dark);
   border-color: var(--border-dark);
 }
 
+/* Section specific styles to add variety */
+.hero-section {
+  text-align: center;
+  background: linear-gradient(135deg, var(--glass-light), rgba(255, 255, 255, 0.4));
+}
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .about-section .about-content {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+}
+
+.skills-section {
+  background: linear-gradient(145deg, var(--glass-light), rgba(255, 255, 255, 0.3));
+}
+
+.portfolio-section {
+  background: linear-gradient(215deg, var(--glass-light), rgba(255, 255, 255, 0.3));
+}
+
+.contact-section {
+  background: linear-gradient(45deg, var(--glass-light), rgba(255, 255, 255, 0.3));
+}
+
+/* Section headers */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-header ion-icon {
+  font-size: 1.5rem;
+  color: var(--secondary);
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* Typography */
 h1 {
   font-size: 3rem;
   font-weight: 700;
@@ -128,8 +284,12 @@ h2 {
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  border-bottom: 1px solid var(--border-light);
-  padding-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 0.75rem;
 }
 
 p {
@@ -138,52 +298,202 @@ p {
   margin-top: 0.5rem;
 }
 
-.skills, .portfolio-items {
+/* About section layout */
+.about-content {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1.5rem;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
 }
 
-.skill, .portfolio-item {
-  flex: 1 1 40%;
-  text-align: center;
-  padding: 1rem 1.25rem;
-  background: var(--glass-light);
-  border-radius: 16px;
-  border: 1px solid var(--border-light);
-  backdrop-filter: blur(10px);
+.about-text {
+  flex: 1;
+}
+
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  border: 2px solid var(--border-light);
   box-shadow: var(--shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-fit: cover;
 }
 
-body.dark-mode .skill,
+body.dark-mode .about-image img {
+  border-color: var(--border-dark);
+}
+
+/* Skills grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.skill-card {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border-radius: 20px;
+  background: var(--glass-light);
+  border: 1px solid var(--border-light);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+body.dark-mode .skill-card {
+  background: var(--glass-dark);
+  border-color: var(--border-dark);
+}
+
+.skill-card ion-icon {
+  font-size: 2rem;
+  color: var(--secondary);
+  margin-bottom: 0.5rem;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.25);
+}
+
+/* Portfolio grid */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.portfolio-item {
+  background: var(--glass-light);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  backdrop-filter: blur(16px);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
 body.dark-mode .portfolio-item {
   background: var(--glass-dark);
   border-color: var(--border-dark);
 }
 
-.skill:hover,
+.portfolio-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-light);
+}
+
+body.dark-mode .portfolio-img {
+  border-color: var(--border-dark);
+}
+
+.portfolio-item h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-item p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
 .portfolio-item:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   box-shadow: 0 12px 48px rgba(0, 0, 0, 0.25);
 }
 
-.cta-button {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.75rem 1.5rem;
-  background: rgba(255, 255, 255, 0.25);
-  border: 1px solid var(--border-light);
+/* Contact form */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.75rem 1rem;
   border-radius: 12px;
+  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(8px);
   color: inherit;
+  outline: none;
+  transition: border var(--transition), background var(--transition);
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+  background: rgba(0, 0, 0, 0.25);
+  border-color: var(--border-dark);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--secondary);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+body.dark-mode .form-group input:focus,
+body.dark-mode .form-group textarea:focus {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* Call to action buttons */
+.cta-button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--border-light);
+  background: var(--secondary);
+  color: #ffffff;
+  font-weight: 600;
   text-decoration: none;
-  font-weight: 500;
-  transition: background var(--transition);
+  cursor: pointer;
+  transition: background var(--transition), box-shadow var(--transition);
 }
 
 .cta-button:hover {
-  background: rgba(255, 255, 255, 0.4);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  background: darken(var(--secondary), 8%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* The darken function isn't built into CSS; approximate using filter */
+.cta-button:hover {
+  filter: brightness(0.9);
+}
+
+/* Fade-in animation for sections */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
