@@ -1,1096 +1,905 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jeter Cotton | Director of Project Management</title>
-  <meta name="description" content="Jeter Cotton — Director of Project Management based in Texas. Bridging strategy, design, and execution to deliver exceptional outcomes." />
+  <title>Jeter Cotton — Project Manager & Systems Architect</title>
+  <meta name="description" content="Jeter Cotton is a project manager and systems architect who builds processes that eliminate friction — so teams can focus on creative, high-value work." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Jeter Cotton — Project Manager & Systems Architect" />
+  <meta property="og:description" content="Building systems that get out of the way — so teams can focus on the work that actually matters." />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
   <style>
-  /* =====================================================
-     TOKENS
-  ===================================================== */
-  :root {
-    --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --r-sm:   0.75rem;
-    --r-md:   1.25rem;
-    --r-lg:   1.75rem;
-    --r-xl:   2.5rem;
-    --r-2xl:  3rem;
-    --r-pill: 9999px;
-    --ease:   cubic-bezier(.4,0,.2,1);
-    --t:      0.22s var(--ease);
-    --t-slow: 0.5s  var(--ease);
-  }
-
-  /* ── LIGHT ── */
-  [data-theme="light"] {
-    /* Aurora page background */
-    --page-bg: #f8f7ff;
-    --aurora:
-      radial-gradient(ellipse 75% 60% at  8%  5%,  rgba(99,102,241,.22)  0%, transparent 55%),
-      radial-gradient(ellipse 55% 50% at 90% 12%,  rgba(236,72,153,.16)  0%, transparent 55%),
-      radial-gradient(ellipse 60% 50% at 55% 90%,  rgba(59,130,246,.16)  0%, transparent 55%),
-      radial-gradient(ellipse 40% 40% at 20% 75%,  rgba(251,191,36,.09)  0%, transparent 55%),
-      radial-gradient(ellipse 35% 35% at 75% 55%,  rgba(168,85,247,.10)  0%, transparent 55%),
-      #f8f7ff;
-
-    /* Glass */
-    --g-bg:          rgba(255,255,255,.60);
-    --g-bg-h:        rgba(255,255,255,.78);
-    --g-border:      rgba(99,102,241,.15);
-    --g-border-h:    rgba(99,102,241,.30);
-    --g-shadow:      0 4px 24px rgba(99,102,241,.08), 0 1px 0 rgba(255,255,255,.9) inset;
-    --g-shadow-h:    0 12px 48px rgba(99,102,241,.14), 0 1px 0 rgba(255,255,255,.9) inset;
-    --g-shine:       rgba(255,255,255,.95);
-    --g-blur:        blur(36px) saturate(1.8);
-
-    /* Nav */
-    --nav-bg:        rgba(248,247,255,.80);
-    --nav-border:    rgba(99,102,241,.12);
-
-    /* Typography */
-    --c-primary:   #0f0d1e;
-    --c-secondary: #3d3857;
-    --c-muted:     #7b75a0;
-    --c-on-accent: #fff;
-
-    /* Accent — blue (kept from original) */
-    --accent:        #2563eb;
-    --accent-h:      #1d4ed8;
-    --accent-soft:   rgba(37,99,235,.10);
-    --accent-glow:   rgba(37,99,235,.22);
-    --accent-border: rgba(37,99,235,.20);
-    --accent-text:   #2563eb;
-
-    --divider:     rgba(99,102,241,.10);
-    --tag-bg:      rgba(37,99,235,.07);
-    --tag-c:       #1d4ed8;
-    --icon-bg:     rgba(37,99,235,.08);
-  }
-
-  /* ── DARK ── */
-  [data-theme="dark"] {
-    /* Deep navy — original blue palette, less saturation */
-    --page-bg: #06091a;
-    --aurora:
-      radial-gradient(ellipse 70% 55% at 10%  5%,  rgba(37,99,235,.22)   0%, transparent 55%),
-      radial-gradient(ellipse 50% 45% at 88% 18%,  rgba(59,130,246,.12)  0%, transparent 55%),
-      radial-gradient(ellipse 55% 45% at 55% 88%,  rgba(29,78,216,.16)   0%, transparent 55%),
-      radial-gradient(ellipse 35% 35% at 25% 65%,  rgba(17,24,86,.30)    0%, transparent 55%),
-      radial-gradient(ellipse 30% 30% at 70% 40%,  rgba(79,70,229,.10)   0%, transparent 55%),
-      #06091a;
-
-    /* Glass */
-    --g-bg:          rgba(10,18,50,.58);
-    --g-bg-h:        rgba(14,24,62,.72);
-    --g-border:      rgba(96,165,250,.12);
-    --g-border-h:    rgba(96,165,250,.24);
-    --g-shadow:      0 4px 24px rgba(0,0,0,.40), 0 1px 0 rgba(96,165,250,.08) inset;
-    --g-shadow-h:    0 12px 48px rgba(0,0,0,.55), 0 1px 0 rgba(96,165,250,.12) inset;
-    --g-shine:       rgba(96,165,250,.10);
-    --g-blur:        blur(36px) saturate(1.6);
-
-    /* Nav */
-    --nav-bg:        rgba(6,9,26,.80);
-    --nav-border:    rgba(96,165,250,.10);
-
-    /* Typography */
-    --c-primary:   #eef2ff;
-    --c-secondary: #a5b8e0;
-    --c-muted:     #5a78b8;
-    --c-on-accent: #fff;
-
-    /* Accent — blue-400, same as original */
-    --accent:        #60a5fa;
-    --accent-h:      #93c5fd;
-    --accent-soft:   rgba(96,165,250,.10);
-    --accent-glow:   rgba(96,165,250,.22);
-    --accent-border: rgba(96,165,250,.18);
-    --accent-text:   #60a5fa;
-
-    --divider:     rgba(96,165,250,.08);
-    --tag-bg:      rgba(96,165,250,.08);
-    --tag-c:       #93c5fd;
-    --icon-bg:     rgba(96,165,250,.10);
-  }
-
-  /* =====================================================
-     BASE
-  ===================================================== */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: var(--font);
-    background: var(--aurora);
-    background-attachment: fixed;
-    color: var(--c-primary);
-    line-height: 1.6;
-    min-height: 100vh;
-    -webkit-font-smoothing: antialiased;
-    transition: color var(--t-slow), background var(--t-slow);
-  }
-  a { color: inherit; text-decoration: none; }
-  img { max-width: 100%; display: block; }
-
-  .skip { position: absolute; top: -100%; left: 1rem; background: var(--accent); color: #fff; padding: .5rem 1rem; border-radius: var(--r-sm); z-index: 9999; font-weight: 600; }
-  .skip:focus { top: 1rem; }
-
-  .container { max-width: 1160px; margin: 0 auto; padding: 0 1.5rem; }
-
-  /* =====================================================
-     GLASS SYSTEM
-     Three tiers: .g-surface (panels), .g-card (cards),
-     .g-pill (small chips/badges)
-  ===================================================== */
-
-  /* Base glass mixin applied via classes */
-  .g-surface, .g-card, .g-pill {
-    background:          var(--g-bg);
-    backdrop-filter:     var(--g-blur);
-    -webkit-backdrop-filter: var(--g-blur);
-    border:              1px solid var(--g-border);
-    box-shadow:          var(--g-shadow);
-    position:            relative;
-    overflow:            hidden;
-  }
-
-  /* Shimmer top line */
-  .g-surface::before,
-  .g-card::before,
-  .g-pill::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0; height: 1px;
-    background: linear-gradient(90deg, transparent 0%, var(--g-shine) 30%, var(--g-shine) 70%, transparent 100%);
-    pointer-events: none; z-index: 1;
-  }
-
-  /* Content sits above pseudo-elements */
-  .g-surface > *, .g-card > *, .g-pill > * { position: relative; z-index: 1; }
-
-  /* Hoverable card variant */
-  .g-card {
-    border-radius: var(--r-lg);
-    transition: background var(--t), box-shadow var(--t), border-color var(--t), transform var(--t);
-  }
-  .g-card:hover {
-    background:    var(--g-bg-h);
-    box-shadow:    var(--g-shadow-h), 0 0 0 1px var(--g-border-h);
-    border-color:  var(--g-border-h);
-    transform:     translateY(-3px);
-  }
-
-  .g-surface { border-radius: var(--r-xl); }
-  .g-pill    { border-radius: var(--r-pill); }
-
-  /* =====================================================
-     NAVIGATION — floating frosted bar
-  ===================================================== */
-  .navbar {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    background: var(--nav-bg);
-    backdrop-filter: blur(28px) saturate(1.8);
-    -webkit-backdrop-filter: blur(28px) saturate(1.8);
-    border-bottom: 1px solid var(--nav-border);
-    transition: background var(--t), border-color var(--t), box-shadow var(--t);
-  }
-  .navbar.scrolled { box-shadow: 0 1px 32px rgba(0,0,0,.18); }
-  .nav-inner {
-    max-width: 1160px; margin: 0 auto; padding: 0 1.5rem;
-    height: 64px; display: flex; align-items: center;
-    justify-content: space-between; gap: 2rem;
-  }
-  .nav-logo { font-size: 1rem; font-weight: 700; letter-spacing: -.01em; flex-shrink: 0; }
-  .nav-logo em { color: var(--accent); font-style: normal; }
-  .nav-links { display: flex; list-style: none; gap: .25rem; }
-  .nav-link {
-    display: block; padding: .4rem .75rem;
-    font-size: .875rem; font-weight: 500; color: var(--c-secondary);
-    border-radius: var(--r-sm);
-    transition: color var(--t), background var(--t);
-  }
-  .nav-link:hover { color: var(--c-primary); background: var(--g-bg); }
-  .nav-right { display: flex; align-items: center; gap: .625rem; flex-shrink: 0; }
-  .nav-toggle {
-    width: 38px; height: 38px; border-radius: var(--r-pill);
-    border: 1px solid var(--g-border); background: var(--g-bg);
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    color: var(--c-secondary); cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    font-size: .95rem;
-    transition: background var(--t), color var(--t);
-  }
-  .nav-toggle:hover { background: var(--g-bg-h); color: var(--c-primary); }
-  .nav-cta {
-    padding: .45rem 1.1rem; border-radius: var(--r-pill);
-    background: var(--accent); color: #fff;
-    font-size: .875rem; font-weight: 600;
-    transition: background var(--t), box-shadow var(--t);
-  }
-  .nav-cta:hover { background: var(--accent-h); box-shadow: 0 0 18px var(--accent-glow); }
-  .hamburger {
-    display: none; flex-direction: column; justify-content: space-around;
-    width: 26px; height: 20px; background: transparent; border: none;
-    cursor: pointer; padding: 0; z-index: 1001;
-  }
-  .ham-line {
-    width: 100%; height: 2px; background: var(--c-secondary);
-    border-radius: 2px; transition: all var(--t);
-  }
-  .hamburger.open .ham-line:nth-child(1) { transform: rotate(45deg) translate(6px,6px); }
-  .hamburger.open .ham-line:nth-child(2) { opacity: 0; }
-  .hamburger.open .ham-line:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
-
-  /* =====================================================
-     HERO — full-bleed aurora, large glass card center stage
-  ===================================================== */
-  #hero {
-    min-height: 100vh;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    padding: 100px 1.5rem 3rem;
-    position: relative;
-  }
-
-  /* Vivid aurora blobs behind everything */
-  .orb {
-    position: absolute; border-radius: 50%;
-    pointer-events: none; filter: blur(90px);
-    animation: drift var(--dur, 14s) ease-in-out infinite;
-  }
-  .orb-1 { width:700px;height:700px; top:-180px;left:-180px; background:radial-gradient(circle,rgba(37,99,235,.55) 0%,rgba(59,130,246,.15) 50%,transparent 70%); --dur:14s; opacity:.65; }
-  .orb-2 { width:500px;height:500px; top:10%;right:-100px; background:radial-gradient(circle,rgba(79,70,229,.40) 0%,rgba(99,102,241,.12) 50%,transparent 70%); --dur:19s; opacity:.55; }
-  .orb-3 { width:400px;height:400px; bottom:-50px;left:30%; background:radial-gradient(circle,rgba(59,130,246,.30) 0%,rgba(37,99,235,.10) 50%,transparent 70%); --dur:23s; opacity:.50; animation-delay:-5s; }
-  @keyframes drift {
-    0%,100%{ transform:translate(0,0) scale(1); }
-    33%    { transform:translate(28px,-22px) scale(1.04); }
-    66%    { transform:translate(-18px,14px) scale(.97); }
-  }
-
-  /* The hero glass card — this is the centrepiece */
-  .hero-card {
-    position: relative; z-index: 2;
-    width: 100%; max-width: 860px;
-    padding: 3rem 3.5rem 2.5rem;
-    border-radius: var(--r-2xl);
-  }
-
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: .5rem;
-    font-size: .75rem; font-weight: 600;
-    letter-spacing: .10em; text-transform: uppercase;
-    color: var(--accent-text);
-    background: var(--tag-bg); border: 1px solid var(--accent-border);
-    padding: .28rem .85rem; border-radius: var(--r-pill);
-    margin-bottom: 1.75rem;
-  }
-
-  .hero-name {
-    font-size: clamp(2.8rem, 7.5vw, 5.5rem);
-    font-weight: 800; letter-spacing: -.04em; line-height: 1.0;
-    color: var(--c-primary);
-    margin-bottom: .75rem;
-  }
-
-  .hero-role {
-    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-    font-weight: 400; color: var(--accent-text);
-    letter-spacing: -.01em;
-    margin-bottom: 1.25rem;
-  }
-
-  .hero-sub {
-    font-size: clamp(.95rem, 1.8vw, 1.0625rem);
-    color: var(--c-secondary); max-width: 52ch;
-    line-height: 1.75; margin-bottom: 2rem;
-  }
-
-  .hero-btns { display: flex; gap: .875rem; flex-wrap: wrap; }
-
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: .5rem;
-    padding: .78rem 1.6rem; border-radius: var(--r-pill);
-    background: var(--accent); color: #fff;
-    font-size: .9375rem; font-weight: 600;
-    box-shadow: 0 4px 22px var(--accent-glow);
-    transition: background var(--t), box-shadow var(--t), transform var(--t);
-  }
-  .btn-primary:hover { background:var(--accent-h); box-shadow:0 8px 32px var(--accent-glow); transform:translateY(-1px); }
-
-  .btn-ghost {
-    display: inline-flex; align-items: center; gap: .5rem;
-    padding: .78rem 1.6rem; border-radius: var(--r-pill);
-    background: var(--g-bg);
-    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-    color: var(--c-primary); border: 1px solid var(--g-border);
-    font-size: .9375rem; font-weight: 600;
-    transition: background var(--t), box-shadow var(--t), transform var(--t);
-  }
-  .btn-ghost:hover { background:var(--g-bg-h); transform:translateY(-1px); box-shadow:0 4px 18px var(--accent-glow); }
-
-  /* Stat strip at the bottom of the hero card */
-  .hero-stats {
-    display: flex; gap: 0;
-    margin-top: 2.5rem;
-    border-top: 1px solid var(--g-border);
-    padding-top: 1.5rem;
-    flex-wrap: wrap;
-  }
-  .stat {
-    flex: 1; min-width: 100px;
-    padding: .5rem 1rem;
-    border-right: 1px solid var(--g-border);
-  }
-  .stat:last-child { border-right: none; }
-  .stat-n { font-size: 1.75rem; font-weight: 700; color: var(--c-primary); line-height: 1; }
-  .stat-l { font-size: .75rem; color: var(--c-muted); margin-top: .2rem; }
-
-  /* =====================================================
-     SECTION CHROME (shared)
-  ===================================================== */
-  .section { padding: 5rem 0; }
-
-  .s-label {
-    display: inline-flex; align-items: center; gap: .5rem;
-    font-size: .72rem; font-weight: 600;
-    letter-spacing: .12em; text-transform: uppercase;
-    color: var(--accent-text);
-    background: var(--tag-bg); border: 1px solid var(--accent-border);
-    padding: .28rem .8rem; border-radius: var(--r-pill);
-    margin-bottom: 1rem;
-  }
-
-  .s-title {
-    font-size: clamp(1.6rem, 3.8vw, 2.4rem);
-    font-weight: 700; letter-spacing: -.025em; line-height: 1.2;
-    margin-bottom: .875rem;
-  }
-  .s-sub { font-size: 1.0625rem; color: var(--c-secondary); max-width: 52ch; line-height: 1.7; }
-
-  /* =====================================================
-     ABOUT — two glass panels side by side
-  ===================================================== */
-  #about .about-wrap {
-    display: grid; grid-template-columns: 1fr 380px;
-    gap: 1.5rem; align-items: stretch;
-  }
-
-  .about-panel {
-    padding: 2.5rem;
-    border-radius: var(--r-xl);
-  }
-
-  .about-body { font-size: 1.0625rem; color: var(--c-secondary); line-height: 1.8; }
-  .about-body p + p { margin-top: .875rem; }
-
-  .tag-row { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.75rem; }
-  .tag {
-    display: inline-flex; align-items: center; gap: .3rem;
-    font-size: .8rem; font-weight: 500;
-    padding: .28rem .75rem;
-    background: var(--tag-bg); color: var(--tag-c);
-    border: 1px solid var(--g-border); border-radius: var(--r-pill);
-  }
-
-  .photo-panel {
-    border-radius: var(--r-xl);
-    min-height: 320px;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: .75rem; color: var(--c-muted); font-size: .875rem;
-    overflow: hidden;
-  }
-  .photo-panel img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-  .photo-panel .ph-icon { font-size: 3.5rem; opacity: .35; }
-
-  /* =====================================================
-     COMPETENCIES — Bento glass grid
-     Row 1: [span 2] [span 1]
-     Row 2: [span 1] [span 2]
-     Row 3: [span 2] [span 1]
-  ===================================================== */
-  #competencies .bento {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-    margin-top: 3rem;
-  }
-
-  .bento-card {
-    padding: 2rem 2rem 1.75rem;
-    border-radius: var(--r-xl);
-    display: flex; flex-direction: column;
-    transition: background var(--t), box-shadow var(--t), border-color var(--t), transform var(--t);
-    cursor: default;
-  }
-  .bento-card:hover {
-    background: var(--g-bg-h);
-    box-shadow: var(--g-shadow-h), 0 0 0 1px var(--g-border-h);
-    border-color: var(--g-border-h);
-    transform: translateY(-4px);
-  }
-
-  .bento-wide { grid-column: span 2; }
-
-  /* Wide card layout: icon left, text right */
-  .bento-wide .bc-inner {
-    display: grid; grid-template-columns: 56px 1fr;
-    gap: 1.25rem; align-items: start;
-  }
-
-  /* Standard card layout: stacked */
-  .bento-card:not(.bento-wide) .bc-inner { display: flex; flex-direction: column; }
-  .bento-card:not(.bento-wide) .bc-icon  { margin-bottom: 1.25rem; }
-
-  .bc-icon {
-    width: 52px; height: 52px;
-    background: var(--icon-bg); border: 1px solid var(--accent-border);
-    border-radius: var(--r-md);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.5rem; flex-shrink: 0;
-  }
-
-  .bc-title {
-    font-size: 1.05rem; font-weight: 600; letter-spacing: -.015em;
-    margin-bottom: .5rem;
-  }
-  .bc-desc { font-size: .9rem; color: var(--c-secondary); line-height: 1.6; }
-
-  /* =====================================================
-     PORTFOLIO — large glass cards
-  ===================================================== */
-  #portfolio .port-header {
-    display: flex; justify-content: space-between; align-items: flex-end;
-    flex-wrap: wrap; gap: 1.25rem; margin-bottom: 2.5rem;
-  }
-  #portfolio .port-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
-
-  .port-card {
-    border-radius: var(--r-xl); overflow: hidden;
-    display: flex; flex-direction: column;
-  }
-  /* Hover applied via .g-card */
-
-  .port-thumb {
-    aspect-ratio: 16/9;
-    background: var(--g-bg);
-    border-bottom: 1px solid var(--g-border);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 3rem; position: relative; overflow: hidden;
-  }
-
-  /* Gradient overlay on thumb */
-  .port-thumb::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 40%, var(--g-bg) 100%);
-    pointer-events: none;
-  }
-
-  .port-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
-  .port-tag  { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent-text); margin-bottom: .5rem; }
-  .port-card h3 { font-size: 1rem; font-weight: 600; letter-spacing: -.01em; margin-bottom: .5rem; }
-  .port-card p  { font-size: .875rem; color: var(--c-secondary); line-height: 1.6; flex: 1; }
-  .port-link { display: inline-flex; align-items: center; gap: .3rem; margin-top: 1rem; font-size: .875rem; font-weight: 600; color: var(--accent-text); transition: gap var(--t); }
-  .port-link:hover { gap: .6rem; }
-
-  /* =====================================================
-     CONTACT — two-col glass layout
-  ===================================================== */
-  #contact .contact-grid { display: grid; grid-template-columns: 1fr 1.45fr; gap: 1.5rem; align-items: stretch; }
-
-  .contact-info { padding: 2.5rem; border-radius: var(--r-xl); }
-
-  /* Form fills its grid cell vertically */
-  .contact-form { height: 100%; }
-
-  .ci-title { font-size: clamp(1.4rem,3vw,1.9rem); font-weight: 700; letter-spacing: -.02em; margin-bottom: .875rem; }
-  .ci-sub   { font-size: 1.0625rem; color: var(--c-secondary); line-height: 1.7; margin-bottom: 1.75rem; }
-
-  .ci-item {
-    display: flex; align-items: center; gap: 1rem;
-    padding: .875rem 1rem;
-    border-radius: var(--r-md); margin-bottom: .625rem;
-    border: 1px solid transparent;
-    transition: background var(--t), border-color var(--t);
-  }
-  .ci-item:hover { background: var(--g-bg-h); border-color: var(--g-border); }
-  .ci-icon {
-    width: 40px; height: 40px; flex-shrink: 0;
-    background: var(--icon-bg); border: 1px solid var(--accent-border);
-    border-radius: var(--r-sm);
-    display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
-  }
-  .ci-lbl { font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--c-muted); }
-  .ci-val { font-size: .9375rem; font-weight: 500; }
-  .ci-val a { color: var(--accent-text); }
-
-  /* Form */
-  .contact-form { padding: 2.25rem; border-radius: var(--r-xl); display: flex; flex-direction: column; gap: 1rem; }
-
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .f-group  { display: flex; flex-direction: column; gap: .35rem; }
-  .f-group label { font-size: .8rem; font-weight: 600; color: var(--c-secondary); letter-spacing: .02em; }
-
-  .f-group input,
-  .f-group textarea {
-    padding: .72rem 1rem;
-    background: var(--g-bg); border: 1px solid var(--g-border);
-    border-radius: var(--r-md);
-    font-family: var(--font); font-size: .9375rem; color: var(--c-primary);
-    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-    outline: none; width: 100%;
-    transition: border-color var(--t), box-shadow var(--t), background var(--t);
-  }
-  .f-group input::placeholder,
-  .f-group textarea::placeholder { color: var(--c-muted); }
-  .f-group input:focus,
-  .f-group textarea:focus {
-    border-color: var(--accent);
-    background: var(--g-bg-h);
-    box-shadow: 0 0 0 3px var(--accent-glow);
-  }
-  .f-group textarea { min-height: 130px; resize: vertical; }
-
-  .form-submit {
-    align-self: flex-start;
-    display: inline-flex; align-items: center; gap: .5rem;
-    padding: .85rem 1.85rem; border-radius: var(--r-pill);
-    background: var(--accent); color: #fff; border: none;
-    font-family: var(--font); font-size: .9375rem; font-weight: 600;
-    cursor: pointer; box-shadow: 0 4px 22px var(--accent-glow);
-    transition: background var(--t), box-shadow var(--t), transform var(--t);
-  }
-  .form-submit:hover { background:var(--accent-h); box-shadow:0 8px 32px var(--accent-glow); transform:translateY(-1px); }
-
-  /* =====================================================
-     FOOTER
-  ===================================================== */
-  footer {
-    border-top: 1px solid var(--divider); padding: 2.5rem 0;
-    background: var(--nav-bg); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-  }
-  .foot-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-  .foot-logo { font-size: 1rem; font-weight: 700; }
-  .foot-logo em { color: var(--accent); font-style: normal; }
-  .foot-links { display: flex; gap: 1.5rem; list-style: none; }
-  .foot-links a { font-size: .875rem; color: var(--c-muted); transition: color var(--t); }
-  .foot-links a:hover { color: var(--c-primary); }
-  .foot-copy { font-size: .8rem; color: var(--c-muted); }
-
-  /* =====================================================
-     DIVIDER
-  ===================================================== */
-  .divider { height: 1px; background: linear-gradient(90deg,transparent,var(--divider),transparent); margin: 0 1.5rem; }
-
-  /* =====================================================
-     SCROLL REVEAL
-  ===================================================== */
-  .rv { opacity: 0; transform: translateY(28px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
-  .rv.in  { opacity: 1; transform: none; }
-  .rv-d1  { transition-delay: .10s; }
-  .rv-d2  { transition-delay: .20s; }
-  .rv-d3  { transition-delay: .30s; }
-  .rv-d4  { transition-delay: .40s; }
-
-  /* =====================================================
-     RESPONSIVE
-  ===================================================== */
-  @media (max-width: 767px) {
-    .hamburger { display: flex; }
-    .nav-cta   { display: none; }
-    .nav-links {
-      position: fixed; top: 0; right: -100%; height: 100vh;
-      width: 70%; max-width: 280px;
-      background: var(--nav-bg);
-      backdrop-filter: blur(28px) saturate(1.8); -webkit-backdrop-filter: blur(28px) saturate(1.8);
-      border-left: 1px solid var(--g-border);
-      flex-direction: column; list-style: none;
-      padding: 5rem 1.5rem 1.5rem; gap: .25rem;
-      transition: right var(--t-slow); z-index: 1000;
+    /* ─── Tokens ──────────────────────────────────────────────── */
+    :root {
+      --canvas:        #faf8f5;
+      --surface:       #ffffff;
+      --surface-alt:   #f3efe9;
+      --surface-deep:  #ede7de;
+      --ink-1:         #1e1b18;
+      --ink-2:         #5c5650;
+      --ink-3:         #9c948c;
+      --ink-4:         #c4bdb5;
+      --accent:        #7a5c45;
+      --accent-light:  #b89480;
+      --accent-pale:   #f0e6de;
+      --accent-dark:   #5a3f2e;
+      --border:        rgba(30,27,24,0.10);
+      --border-strong: rgba(30,27,24,0.20);
+      --shadow-xs:     rgba(30,27,24,0.04) 0px 1px 2px;
+      --shadow-sm:     rgba(30,27,24,0.04) 0px 2px 8px, rgba(30,27,24,0.03) 0px 1px 2px;
+      --shadow-md:     rgba(30,27,24,0.07) 0px 6px 24px, rgba(30,27,24,0.04) 0px 2px 4px;
+      --r-sm:  6px;
+      --r-md:  10px;
+      --r-lg:  16px;
+      --r-pill:9999px;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans:  'Inter', -apple-system, system-ui, sans-serif;
+      --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+      --max-w:      720px;
+      --max-w-wide: 1000px;
     }
-    .nav-links.open { right: 0; }
-    .nav-link { font-size: 1rem; padding: .6rem 1rem; }
 
-    .hero-card { padding: 2rem 1.5rem 1.75rem; }
-    #hero { padding-top: 80px; }
-    .stat { min-width: 80px; padding: .5rem .625rem; }
+    /* ─── Reset ───────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html  { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    body  { background: var(--canvas); color: var(--ink-1); font-family: var(--font-sans); line-height: 1.6; overflow-x: hidden; }
+    img   { max-width: 100%; display: block; }
+    a     { color: inherit; text-decoration: none; }
+    ul    { list-style: none; }
+    button { font-family: var(--font-sans); cursor: pointer; }
 
-    #about .about-wrap { grid-template-columns: 1fr; align-items: start; }
-    .photo-panel { height: 280px; aspect-ratio: unset; order: -1; }
-    .about-panel { padding: 1.75rem; }
+    /* ─── Skip link ───────────────────────────────────────────── */
+    .skip-link {
+      position: absolute; top: -100%; left: 16px;
+      background: var(--ink-1); color: #fff;
+      padding: 8px 16px; font-size: 14px; font-weight: 500;
+      border-radius: var(--r-sm); z-index: 9999;
+      transition: top 0.2s; outline-offset: 3px;
+    }
+    .skip-link:focus { top: 16px; }
 
-    #competencies .bento { grid-template-columns: 1fr; }
-    .bento-wide { grid-column: span 1; }
-    .bento-wide .bc-inner { grid-template-columns: 48px 1fr; }
+    /* ─── Layout ──────────────────────────────────────────────── */
+    .container      { max-width: var(--max-w);      margin: 0 auto; padding: 0 24px; }
+    .container-wide { max-width: var(--max-w-wide); margin: 0 auto; padding: 0 24px; }
 
-    #portfolio .port-grid { grid-template-columns: 1fr; }
-    #contact .contact-grid { grid-template-columns: 1fr; align-items: start; }
-    .contact-form { height: auto; }
-    .form-row { grid-template-columns: 1fr; }
-    .foot-inner { flex-direction: column; align-items: flex-start; }
-    .foot-links { flex-wrap: wrap; gap: 1rem; }
-    .orb-1 { width:380px;height:380px; }
-    .orb-2 { width:260px;height:260px; }
-  }
+    /* ─── Scroll animations ───────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.08s; }
+    .reveal-delay-2 { transition-delay: 0.16s; }
+    .reveal-delay-3 { transition-delay: 0.24s; }
+    .reveal-delay-4 { transition-delay: 0.32s; }
+    .reveal-delay-5 { transition-delay: 0.40s; }
+    .reveal-delay-6 { transition-delay: 0.48s; }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    #about .about-wrap { grid-template-columns: 1fr; align-items: start; }
-    .photo-panel { height: 340px; aspect-ratio: unset; order: -1; }
-    #portfolio .port-grid { grid-template-columns: repeat(2,1fr); }
-    #competencies .bento { grid-template-columns: repeat(2,1fr); }
-    .bento-wide { grid-column: span 2; }
-    .bento-wide .bc-inner { grid-template-columns: 56px 1fr; }
-    #contact .contact-grid { grid-template-columns: 1fr; align-items: start; }
-    .contact-form { height: auto; }
-  }
+    /* ─── Navigation ──────────────────────────────────────────── */
+    .navbar {
+      position: sticky; top: 0;
+      background: rgba(250,248,245,0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      transition: box-shadow 0.2s ease;
+    }
+    .navbar.scrolled { box-shadow: var(--shadow-xs); }
+    .nav-container {
+      max-width: var(--max-w-wide); margin: 0 auto; padding: 0 24px;
+      height: 64px; display: flex; align-items: center;
+      justify-content: space-between; gap: 16px;
+    }
+    .nav-logo {
+      font-family: var(--font-serif); font-size: 21px;
+      font-weight: 300; letter-spacing: 0.22em;
+      color: var(--ink-1); flex-shrink: 0; z-index: 1001;
+      transition: opacity 0.15s ease;
+    }
+    .nav-logo:hover { opacity: 0.7; }
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-link {
+      font-size: 14px; font-weight: 400; color: var(--ink-3);
+      transition: color 0.15s ease; position: relative; padding-bottom: 2px;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
+      height: 1px; background: var(--ink-1);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.2s var(--ease-out);
+    }
+    .nav-link:hover, .nav-link.active { color: var(--ink-1); }
+    .nav-link.active::after, .nav-link:hover::after { transform: scaleX(1); }
+    .nav-cta {
+      font-size: 13px; font-weight: 500; color: #fff;
+      background: var(--ink-1); padding: 8px 18px;
+      border-radius: var(--r-sm); white-space: nowrap;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+    .nav-cta:hover { background: #2e2a25; transform: translateY(-1px); }
+    .nav-cta:active { transform: translateY(0); }
+
+    /* Mobile toggle */
+    .menu-toggle {
+      display: none; flex-direction: column;
+      justify-content: space-around;
+      width: 28px; height: 22px;
+      background: transparent; border: none;
+      padding: 0; z-index: 1001;
+    }
+    .menu-toggle span {
+      width: 100%; height: 2px; background: var(--ink-1);
+      border-radius: 2px; transition: all 0.28s var(--ease-out);
+      display: block;
+    }
+    .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(7px, 7px); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+
+    @media (max-width: 767px) {
+      .menu-toggle { display: flex; }
+      .nav-cta.desktop { display: none; }
+      .nav-links {
+        position: fixed; top: 0; right: -100%;
+        height: 100dvh; width: 72%; max-width: 280px;
+        background: var(--surface);
+        flex-direction: column; align-items: flex-start;
+        padding: 88px 32px 40px;
+        gap: 28px; transition: right 0.32s var(--ease-out);
+        box-shadow: -4px 0 32px rgba(30,27,24,0.10);
+        z-index: 1000;
+      }
+      .nav-links.open { right: 0; }
+      .nav-links.open::before {
+        content: ''; position: fixed; inset: 0;
+        background: rgba(30,27,24,0.30); z-index: -1;
+      }
+      .nav-link { font-size: 20px; color: var(--ink-2); }
+      .nav-links .nav-cta {
+        display: inline-block; margin-top: 8px; font-size: 15px;
+        padding: 11px 22px;
+      }
+    }
+
+    /* ─── Hero ────────────────────────────────────────────────── */
+    .hero {
+      padding: 128px 0 96px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    .hero-overline {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(42px, 7vw, 68px);
+      font-weight: 300; line-height: 1.06;
+      letter-spacing: -0.5px; color: var(--ink-1);
+      margin-bottom: 24px;
+    }
+    .hero-sub {
+      font-size: 18px; font-weight: 400; color: var(--ink-2);
+      line-height: 1.68; max-width: 520px; margin-bottom: 40px;
+    }
+    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 14px; font-weight: 500;
+      padding: 12px 24px; border-radius: var(--r-sm);
+      border: none; transition: all 0.15s ease;
+    }
+    .btn-dark  { background: var(--ink-1); color: #fff; }
+    .btn-dark:hover  { background: #2e2a25; transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+    .btn-dark:active { transform: translateY(0); }
+    .btn-ghost { background: transparent; color: var(--ink-2); padding: 12px 4px; }
+    .btn-ghost:hover { color: var(--ink-1); }
+    .btn-ghost .arrow { display: inline-block; transition: transform 0.15s ease; }
+    .btn-ghost:hover .arrow { transform: translateX(4px); }
+
+    /* ─── Section common ──────────────────────────────────────── */
+    .section-label {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--ink-3);
+    }
+    .section-title {
+      font-family: var(--font-serif); font-size: 32px;
+      font-weight: 400; color: var(--ink-1); margin-top: 8px;
+    }
+
+    /* ─── Work ────────────────────────────────────────────────── */
+    .section-work { padding: 96px 0; border-bottom: 1px solid var(--border); }
+    .work-header  { margin-bottom: 40px; }
+    .work-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 16px;
+    }
+    .work-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--r-md); padding: 28px;
+      display: flex; flex-direction: column;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s var(--ease-out);
+    }
+    .work-card:hover {
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .work-card-top {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; margin-bottom: 20px;
+    }
+    .work-num {
+      font-family: var(--font-serif); font-size: 13px;
+      font-weight: 400; color: var(--ink-4);
+    }
+    .work-arrow {
+      font-size: 16px; color: var(--ink-4);
+      transition: color 0.15s ease, transform 0.15s ease;
+    }
+    .work-card:hover .work-arrow { color: var(--ink-1); transform: translate(2px,-2px); }
+    .work-title {
+      font-family: var(--font-serif); font-size: 20px;
+      font-weight: 400; color: var(--ink-1);
+      line-height: 1.3; margin-bottom: 12px; flex: 1;
+    }
+    .work-outcome {
+      font-size: 13px; color: var(--ink-2);
+      line-height: 1.65; margin-bottom: 20px;
+    }
+    .work-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+    .tag {
+      font-size: 11px; font-weight: 500;
+      padding: 3px 10px; border-radius: var(--r-pill);
+    }
+    .tag-default { background: var(--surface-alt); border: 1px solid var(--border); color: var(--ink-2); }
+    .tag-accent  { background: var(--accent-pale); border: 1px solid rgba(122,92,69,0.15); color: var(--accent-dark); }
+
+    @media (max-width: 767px) { .work-grid { grid-template-columns: 1fr; } }
+    @media (min-width: 768px) and (max-width: 1023px) { .work-grid { grid-template-columns: 1fr 1fr; } }
+
+    /* ─── Philosophy ──────────────────────────────────────────── */
+    .section-philosophy {
+      background: var(--surface-alt);
+      padding: 96px 0; border-bottom: 1px solid var(--border);
+    }
+    .philosophy-inner {
+      max-width: 600px; margin: 0 auto;
+      padding: 0 24px; text-align: center;
+    }
+    .philosophy-mark {
+      font-family: var(--font-serif); font-size: 80px;
+      font-weight: 300; color: var(--ink-4); line-height: 0.5;
+      display: block; margin-bottom: 28px;
+    }
+    .philosophy-text {
+      font-family: var(--font-serif);
+      font-size: clamp(22px, 3.5vw, 30px);
+      font-weight: 300; line-height: 1.42;
+      color: var(--ink-1); margin-bottom: 20px;
+    }
+    .philosophy-sub {
+      font-size: 15px; color: var(--ink-2);
+      line-height: 1.7;
+    }
+
+    /* ─── Approach ────────────────────────────────────────────── */
+    .section-approach { padding: 96px 0; border-bottom: 1px solid var(--border); }
+    .approach-header  { margin-bottom: 40px; }
+    .approach-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .approach-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--r-md); padding: 28px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .approach-card:hover { border-color: var(--border-strong); box-shadow: var(--shadow-sm); }
+    .approach-num {
+      font-family: var(--font-serif); font-size: 40px;
+      font-weight: 300; color: var(--ink-4); line-height: 1; margin-bottom: 20px;
+    }
+    .approach-title {
+      font-family: var(--font-serif); font-size: 20px;
+      font-weight: 500; color: var(--ink-1);
+      line-height: 1.3; margin-bottom: 10px;
+    }
+    .approach-desc { font-size: 14px; color: var(--ink-2); line-height: 1.68; }
+
+    @media (max-width: 767px) { .approach-grid { grid-template-columns: 1fr; } }
+    @media (min-width: 768px) and (max-width: 1023px) { .approach-grid { grid-template-columns: 1fr 1fr; } }
+
+    /* ─── Capabilities ────────────────────────────────────────── */
+    .section-capabilities { background: var(--ink-1); padding: 96px 0; }
+    .cap-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4vw, 46px);
+      font-weight: 300; color: #fff; line-height: 1.15;
+      margin-bottom: 48px;
+    }
+    .cap-body { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    .cap-group { margin-bottom: 32px; }
+    .cap-group:last-child { margin-bottom: 0; }
+    .cap-group-label {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.16em;
+      text-transform: uppercase; color: rgba(255,255,255,0.35);
+      margin-bottom: 14px;
+    }
+    .cap-list { display: flex; flex-direction: column; gap: 8px; }
+    .cap-item {
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.75);
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--r-sm);
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .cap-item:hover { background: rgba(255,255,255,0.09); color: rgba(255,255,255,0.92); }
+    .cap-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent-light); flex-shrink: 0; }
+    .tools-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tool-tag {
+      font-size: 12px; font-weight: 500;
+      padding: 5px 12px; border-radius: var(--r-pill);
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.65);
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+    .tool-tag:hover {
+      background: rgba(255,255,255,0.13);
+      border-color: rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.88);
+    }
+
+    @media (max-width: 767px) { .cap-body { grid-template-columns: 1fr; gap: 32px; } }
+
+    /* ─── Contact ─────────────────────────────────────────────── */
+    .section-contact { padding: 96px 0; border-bottom: 1px solid var(--border); }
+    .contact-body {
+      display: grid; grid-template-columns: 1fr 1.35fr;
+      gap: 64px; align-items: start;
+    }
+    .contact-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 400; color: var(--ink-1);
+      line-height: 1.2; margin-bottom: 16px;
+    }
+    .contact-desc { font-size: 15px; color: var(--ink-2); line-height: 1.7; margin-bottom: 24px; }
+    .contact-email { font-size: 13px; color: var(--ink-3); }
+    .contact-email a {
+      color: var(--ink-2); text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease;
+    }
+    .contact-email a:hover { color: var(--ink-1); }
+
+    /* Form */
+    .form-group { margin-bottom: 20px; }
+    .form-label {
+      display: block; font-size: 12px; font-weight: 500;
+      color: var(--ink-2); margin-bottom: 6px;
+    }
+    .form-input {
+      width: 100%; font-family: var(--font-sans); font-size: 14px;
+      color: var(--ink-1); background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--r-sm); padding: 10px 14px;
+      outline: none; -webkit-appearance: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .form-input::placeholder { color: var(--ink-4); }
+    .form-input:focus {
+      border-color: var(--accent-light);
+      box-shadow: 0 0 0 3px var(--accent-pale);
+    }
+    textarea.form-input { resize: vertical; min-height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-submit {
+      width: 100%; font-size: 14px; font-weight: 500;
+      color: #fff; background: var(--ink-1);
+      border: none; border-radius: var(--r-sm);
+      padding: 13px 24px; margin-top: 8px;
+      transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .form-submit:hover { background: #2e2a25; transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+    .form-submit:active { transform: translateY(0); }
+    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .form-note { font-size: 12px; color: var(--ink-3); margin-top: 10px; text-align: center; }
+
+    /* Form success state */
+    .form-success {
+      display: none; text-align: center;
+      padding: 40px 24px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--r-md);
+    }
+    .form-success.visible { display: block; }
+    .form-success-icon {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--accent-pale); margin: 0 auto 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+    .form-success-title {
+      font-family: var(--font-serif); font-size: 24px;
+      font-weight: 400; color: var(--ink-1); margin-bottom: 8px;
+    }
+    .form-success-sub { font-size: 14px; color: var(--ink-2); line-height: 1.6; }
+
+    @media (max-width: 767px) {
+      .contact-body { grid-template-columns: 1fr; gap: 40px; }
+      .form-row     { grid-template-columns: 1fr; }
+    }
+
+    /* ─── Footer ──────────────────────────────────────────────── */
+    .footer { padding: 32px 0 40px; }
+    .footer-inner {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap; gap: 16px; margin-bottom: 24px;
+    }
+    .footer-logo {
+      font-family: var(--font-serif); font-size: 18px;
+      font-weight: 300; letter-spacing: 0.20em; color: var(--ink-1);
+      transition: opacity 0.15s ease;
+    }
+    .footer-logo:hover { opacity: 0.6; }
+    .footer-nav { display: flex; gap: 28px; flex-wrap: wrap; }
+    .footer-link {
+      font-size: 13px; color: var(--ink-3); transition: color 0.15s ease;
+    }
+    .footer-link:hover { color: var(--ink-1); }
+    .footer-bottom {
+      padding-top: 20px; border-top: 1px solid var(--border);
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy    { font-size: 12px; color: var(--ink-4); }
+    .footer-tagline { font-family: var(--font-serif); font-size: 13px; font-style: italic; color: var(--ink-4); }
+
+    @media (max-width: 767px) {
+      .footer-inner  { flex-direction: column; align-items: flex-start; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ─── Utility ─────────────────────────────────────────────── */
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0;
+      margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+      white-space: nowrap; border: 0;
+    }
   </style>
 </head>
 <body>
 
-<a href="#main" class="skip">Skip to content</a>
+  <a href="#main" class="skip-link">Skip to main content</a>
 
-<!-- ────────────────────────────────────────────────────────────────────────────────
-     NAVIGATION
-──────────────────────────────────────────────────────────────────────────────── -->
-<header>
-  <nav class="navbar" id="navbar">
-    <div class="nav-inner">
-      <a href="#hero" class="nav-logo">Jeter <em>Cotton</em></a>
+  <!-- ─── Nav ─────────────────────────────────────────────────── -->
+  <header>
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="nav-container">
+        <a href="#" class="nav-logo" aria-label="Jeter Cotton — home">JETER</a>
 
-      <button class="hamburger" id="ham" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
-        <span class="ham-line"></span>
-        <span class="ham-line"></span>
-        <span class="ham-line"></span>
-      </button>
-
-      <ul class="nav-links" id="nav-links" role="list">
-        <li><a href="#hero"         class="nav-link">Home</a></li>
-        <li><a href="#about"        class="nav-link">About</a></li>
-        <li><a href="#competencies" class="nav-link">Expertise</a></li>
-        <li><a href="#portfolio"    class="nav-link">Work</a></li>
-        <li><a href="#contact"      class="nav-link">Contact</a></li>
-      </ul>
-
-      <div class="nav-right">
-        <button class="nav-toggle" id="theme-btn" aria-label="Toggle color mode">
-          <span id="theme-icon">☀️</span>
+        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
         </button>
-        <a href="#contact" class="nav-cta">Let's Talk</a>
+
+        <ul class="nav-links" id="nav-links" role="list">
+          <li><a href="#work"      class="nav-link">Work</a></li>
+          <li><a href="#approach"  class="nav-link">Approach</a></li>
+          <li><a href="#about"     class="nav-link">About</a></li>
+          <li><a href="#contact"   class="nav-link">Contact</a></li>
+        </ul>
+
+        <a href="#contact" class="nav-cta desktop">Work with me</a>
       </div>
-    </div>
-  </nav>
-</header>
+    </nav>
+  </header>
 
-<main id="main">
+  <!-- ─── Main ─────────────────────────────────────────────────── -->
+  <main id="main">
 
-<!-- ────────────────────────────────────────────────────────────────────────────────
-     HERO
-     Aurora fills the viewport.
-     Hero content lives inside a large frosted-glass card.
-──────────────────────────────────────────────────────────────────────────────── -->
-<section id="hero">
-  <!-- Aurora orbs — vivid so the blur effect reads clearly -->
-  <div class="orb orb-1" aria-hidden="true"></div>
-  <div class="orb orb-2" aria-hidden="true"></div>
-  <div class="orb orb-3" aria-hidden="true"></div>
-
-  <!-- The glass card -->
-  <div class="hero-card g-surface">
-    <div class="hero-badge">👋 &nbsp;Available for new opportunities</div>
-
-    <h1 class="hero-name">Jeter Cotton</h1>
-    <p  class="hero-role">Director of Project Management</p>
-    <p  class="hero-sub">
-      I transform complex initiatives into delivered results — bridging strategy,
-      design, and execution so teams move fast and ship with confidence.
-    </p>
-
-    <div class="hero-btns">
-      <a href="#contact" class="btn-primary">
-        Let's Work Together
-        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
-          <path d="M3 7.5h9M9 4l3.5 3.5L9 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-      <a href="#portfolio" class="btn-ghost">View My Work</a>
-    </div>
-
-    <!-- Stat strip — glass panels inside the glass card -->
-    <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-n">10+</div>
-        <div class="stat-l">Years Experience</div>
-      </div>
-      <div class="stat">
-        <div class="stat-n">50+</div>
-        <div class="stat-l">Projects Delivered</div>
-      </div>
-      <div class="stat">
-        <div class="stat-n">∞</div>
-        <div class="stat-l">Problems Solved</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider" aria-hidden="true"></div>
-
-<!-- ────────────────────────────────────────────────────────────────────────────────
-     ABOUT — two side-by-side glass panels
-──────────────────────────────────────────────────────────────────────────────── -->
-<section id="about" class="section">
-  <div class="container">
-    <div class="about-wrap">
-
-      <!-- Text panel -->
-      <div class="about-panel g-surface rv">
-        <p class="s-label">About Me</p>
-        <h2 class="s-title">Strategy meets execution.</h2>
-
-        <div class="about-body">
-          <p>
-            I'm Jeter Cotton, a Director of Project Management based in Texas with a rare blend
-            of creative instinct and operational precision. I've led cross-functional teams across
-            digital product launches, design system builds, and strategic campaigns — bringing
-            clarity to ambiguity and momentum to every initiative.
-          </p>
-          <p>
-            My background in design and technology means I don't just manage timelines — I
-            understand the craft behind the work. I lead teams that care about quality, move
-            with purpose, and consistently deliver beyond expectations.
-          </p>
-          <p>
-            Whether I'm aligning stakeholders, unblocking a sprint, or architecting a workflow
-            from scratch, my goal is always the same: make the complex feel simple, and the
-            impossible feel inevitable.
-          </p>
-        </div>
-
-        <div class="tag-row rv rv-d1">
-          <span class="tag">🧠 Strategic Thinker</span>
-          <span class="tag">🛠 Systems Builder</span>
-          <span class="tag">🤝 Team Leader</span>
-          <span class="tag">📊 Data-Informed</span>
-          <span class="tag">🎨 Design-Literate</span>
-          <span class="tag">⚡ Execution-Focused</span>
-        </div>
-      </div>
-
-      <!-- Photo panel — swap src for your real headshot when ready -->
-      <div class="photo-panel g-surface rv rv-d2">
-        <img
-          src="https://raw.githubusercontent.com/jeterbug/personal-website/main/cropped_about.jpg"
-          alt="Jeter Cotton, Director of Project Management"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-        />
-        <div style="display:none; flex-direction:column; align-items:center; gap:.75rem;">
-          <span class="ph-icon">👤</span>
-          <span style="color:var(--c-muted);font-size:.875rem">Add your headshot here</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<div class="divider" aria-hidden="true"></div>
-
-<!-- ────────────────────────────────────────────────────────────────────────────────
-     CORE COMPETENCIES — Bento glass grid
-     Row 1: [Program Leadership - wide] [Design - narrow]
-     Row 2: [Cross-Functional - narrow] [Product Strategy - wide]
-     Row 3: [Process Design - wide] [Stakeholder - narrow]
-──────────────────────────────────────────────────────────────────────────────── -->
-<section id="competencies" class="section">
-  <div class="container">
-    <p class="s-label">Core Expertise</p>
-    <h2 class="s-title">What I bring to the table.</h2>
-    <p class="s-sub">
-      A cross-disciplinary skill set built over years of leading teams, shipping products,
-      and designing the systems that make both possible.
-    </p>
-
-    <div class="bento">
-
-      <!-- Row 1: wide + narrow -->
-      <div class="bento-card bento-wide g-surface rv">
-        <div class="bc-inner">
-          <div class="bc-icon" aria-hidden="true">🗺️</div>
-          <div>
-            <h3 class="bc-title">Project &amp; Program Leadership</h3>
-            <p class="bc-desc">
-              Managing complex, multi-workstream projects from kickoff through delivery — on scope,
-              on schedule, and above expectations. I thrive in ambiguity and bring structure where it's needed most.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="bento-card g-surface rv rv-d1">
-        <div class="bc-inner">
-          <div class="bc-icon" aria-hidden="true">🎨</div>
-          <div>
-            <h3 class="bc-title">Design &amp; Creative Oversight</h3>
-            <p class="bc-desc">
-              With roots in UX and brand design, I bridge the gap between creative vision and executional reality — elevating the craft without slowing the team.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Row 2: narrow + wide -->
-      <div class="bento-card g-surface rv">
-        <div class="bc-inner">
-          <div class="bc-icon" aria-hidden="true">🧩</div>
-          <div>
-            <h3 class="bc-title">Cross-Functional Team Management</h3>
-            <p class="bc-desc">
-              Aligning designers, engineers, and stakeholders around a shared vision. I build high-trust environments where teams do their best work.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="bento-card bento-wide g-surface rv rv-d1">
-        <div class="bc-inner">
-          <div class="bc-icon" aria-hidden="true">📋</div>
-          <div>
-            <h3 class="bc-title">Product Strategy &amp; Roadmapping</h3>
-            <p class="bc-desc">
-              Translating business goals into actionable plans, clear milestones, and measurable outcomes.
-              I connect the "why" to the "what" and keep teams relentlessly focused on impact.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Row 3: wide + narrow -->
-      <div class="bento-card bento-wide g-surface rv">
-        <div class="bc-inner">
-          <div class="bc-icon" aria-hidden="true">⚙️</div>
-          <div>
-            <h3 class="bc-title">Process Design &amp; Optimization</h3>
-            <p class="bc-desc">
-              Building workflows, templates, and operating systems that reduce friction, increase throughput,
-              and scale with the organization. I believe great process is invisible — it just makes work flow.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="bento-card g-surface rv rv-d1">
-        <div class="bc-inner">
-          <div class="bc-icon" aria-hidden="true">💬</div>
-          <div>
-            <h3 class="bc-title">Stakeholder Communication</h3>
-            <p class="bc-desc">
-              Crafting clear, compelling narratives for every audience — from C-suite decks to Slack standups. Stakeholders stay informed, aligned, and confident.
-            </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<div class="divider" aria-hidden="true"></div>
-
-<!-- ────────────────────────────────────────────────────────────────────────────────
-     PORTFOLIO
-──────────────────────────────────────────────────────────────────────────────── -->
-<section id="portfolio" class="section">
-  <div class="container">
-    <div class="port-header">
-      <div>
-        <p class="s-label">Selected Work</p>
-        <h2 class="s-title">Projects I'm proud of.</h2>
-      </div>
-      <p class="s-sub" style="max-width:36ch">
-        Initiatives spanning product, design, and operational transformation.
-      </p>
-    </div>
-
-    <div class="port-grid">
-
-      <article class="port-card g-card rv">
-        <div class="port-thumb"><span aria-hidden="true">📋</span></div>
-        <div class="port-body">
-          <p class="port-tag">Product Management</p>
-          <h3>Project One</h3>
-          <p>Add a compelling description — the challenge, your role, and the outcome. Make it tangible.</p>
-          <a href="#" class="port-link">View Project →</a>
-        </div>
-      </article>
-
-      <article class="port-card g-card rv rv-d1">
-        <div class="port-thumb"><span aria-hidden="true">🚀</span></div>
-        <div class="port-body">
-          <p class="port-tag">Digital Transformation</p>
-          <h3>Project Two</h3>
-          <p>Add a compelling description — the challenge, your role, and the outcome. Make it tangible.</p>
-          <a href="#" class="port-link">View Project →</a>
-        </div>
-      </article>
-
-      <article class="port-card g-card rv rv-d2">
-        <div class="port-thumb"><span aria-hidden="true">🏄</span></div>
-        <div class="port-body">
-          <p class="port-tag">Strategy &amp; Operations</p>
-          <h3>Project Three</h3>
-          <p>Add a compelling description — the challenge, your role, and the outcome. Make it tangible.</p>
-          <a href="#" class="port-link">View Project →</a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<div class="divider" aria-hidden="true"></div>
-
-<!-- ────────────────────────────────────────────────────────────────────────────────
-     CONTACT
-──────────────────────────────────────────────────────────────────────────────── -->
-<section id="contact" class="section">
-  <div class="container">
-    <div class="contact-grid">
-
-      <!-- Info panel -->
-      <div class="contact-info g-surface rv">
-        <p class="s-label">Get In Touch</p>
-        <h2 class="ci-title">Let's build something great together.</h2>
-        <p class="ci-sub">
-          Whether you're exploring a partnership, a new role, or just want to connect — I'd love to hear from you.
+    <!-- Hero -->
+    <section class="hero" id="home" aria-labelledby="hero-h1">
+      <div class="hero-inner">
+        <p  class="hero-overline reveal">Project Manager · Systems Architect</p>
+        <h1 class="hero-headline reveal reveal-delay-1" id="hero-h1">
+          I build systems that<br />get out of the way.
+        </h1>
+        <p class="hero-sub reveal reveal-delay-2">
+          I'm a project manager and systems architect focused on designing processes that eliminate friction and reduce repetitive work — so teams have the space to focus on what actually requires them: creative thinking, bold decisions, and work worth doing.
         </p>
+        <div class="hero-actions reveal reveal-delay-3">
+          <a href="#work"    class="btn btn-dark">See my work</a>
+          <a href="#contact" class="btn btn-ghost">
+            Work with me <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
-        <div class="ci-item">
-          <div class="ci-icon" aria-hidden="true">📧</div>
-          <div>
-            <div class="ci-lbl">Email</div>
-            <div class="ci-val"><a href="mailto:jeter@leadwithprimitive.com">jeter@leadwithprimitive.com</a></div>
-          </div>
+    <!-- Work -->
+    <section class="section-work" id="work" aria-labelledby="work-title">
+      <div class="container-wide">
+        <div class="work-header reveal">
+          <p class="section-label">Selected work</p>
+          <h2 class="section-title" id="work-title">Projects & case studies</h2>
         </div>
 
-        <div class="ci-item">
-          <div class="ci-icon" aria-hidden="true">📍</div>
-          <div>
-            <div class="ci-lbl">Location</div>
-            <div class="ci-val">Texas, United States</div>
-          </div>
+        <div class="work-grid">
+          <!-- Card 1 -->
+          <article class="work-card reveal reveal-delay-1" aria-label="Project 1">
+            <div class="work-card-top">
+              <span class="work-num">01</span>
+              <span class="work-arrow" aria-hidden="true">↗</span>
+            </div>
+            <!-- PLACEHOLDER: Replace with your real project name -->
+            <h3 class="work-title">[Project Name]</h3>
+            <!-- PLACEHOLDER: 1 sentence — what changed, ideally with a number -->
+            <p class="work-outcome">[Outcome — e.g. "Reduced onboarding time from 6 weeks to 3 by redesigning the workflow from the ground up."]</p>
+            <div class="work-tags">
+              <span class="tag tag-accent">Process Design</span>
+              <span class="tag tag-default">Project Management</span>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="work-card reveal reveal-delay-2" aria-label="Project 2">
+            <div class="work-card-top">
+              <span class="work-num">02</span>
+              <span class="work-arrow" aria-hidden="true">↗</span>
+            </div>
+            <!-- PLACEHOLDER: Replace with your real project name -->
+            <h3 class="work-title">[Project Name]</h3>
+            <!-- PLACEHOLDER: 1 sentence — what changed, ideally with a number -->
+            <p class="work-outcome">[Outcome — e.g. "Eliminated 4 hrs/week of status meetings per team member by redesigning the delivery framework."]</p>
+            <div class="work-tags">
+              <span class="tag tag-accent">Systems Thinking</span>
+              <span class="tag tag-default">Workflow Automation</span>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="work-card reveal reveal-delay-3" aria-label="Project 3">
+            <div class="work-card-top">
+              <span class="work-num">03</span>
+              <span class="work-arrow" aria-hidden="true">↗</span>
+            </div>
+            <!-- PLACEHOLDER: Replace with your real project name -->
+            <h3 class="work-title">[Project Name]</h3>
+            <!-- PLACEHOLDER: 1 sentence — what changed, ideally with a number -->
+            <p class="work-outcome">[Outcome — e.g. "Rebuilt the quarterly planning cycle, giving teams 30% more time in execution by compressing planning overhead."]</p>
+            <div class="work-tags">
+              <span class="tag tag-accent">Operations</span>
+              <span class="tag tag-default">Strategic Planning</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section class="section-philosophy" id="about" aria-labelledby="philosophy-text">
+      <div class="philosophy-inner">
+        <span class="philosophy-mark reveal" aria-hidden="true">&ldquo;</span>
+        <p class="philosophy-text reveal reveal-delay-1" id="philosophy-text">
+          The best systems are the ones people stop noticing — because they just work.
+        </p>
+        <!-- PLACEHOLDER: 2–3 sentences of real background — who you are, what you've done, what drives you. Keep it direct and human. -->
+        <p class="philosophy-sub reveal reveal-delay-2">
+          [Your background — e.g. career context, types of teams or industries you've worked with, what made you interested in process and systems work.]
+        </p>
+      </div>
+    </section>
+
+    <!-- Approach -->
+    <section class="section-approach" id="approach" aria-labelledby="approach-title">
+      <div class="container-wide">
+        <div class="approach-header reveal">
+          <p class="section-label">How I work</p>
+          <h2 class="section-title" id="approach-title">Build it right. Then make it better.</h2>
         </div>
 
-        <div class="ci-item">
-          <div class="ci-icon" aria-hidden="true">💼</div>
-          <div>
-            <div class="ci-lbl">LinkedIn</div>
-            <div class="ci-val"><a href="https://linkedin.com/in/jetercotton" target="_blank" rel="noopener">linkedin.com/in/jetercotton</a></div>
+        <div class="approach-grid">
+          <div class="approach-card reveal reveal-delay-1">
+            <div class="approach-num" aria-hidden="true">01</div>
+            <h3 class="approach-title">Map the system before touching it</h3>
+            <p class="approach-desc">Before changing anything, I understand how it actually works — not how it's supposed to. That means talking to the people in the process, finding where time disappears, and identifying what's genuinely broken versus what just feels that way.</p>
+          </div>
+          <div class="approach-card reveal reveal-delay-2">
+            <div class="approach-num" aria-hidden="true">02</div>
+            <h3 class="approach-title">Design for iteration, not perfection</h3>
+            <p class="approach-desc">A good process today beats a perfect process never. I build things to be tested, adjusted, and improved — with feedback loops built in from the start so the system gets smarter over time without a major overhaul every quarter.</p>
+          </div>
+          <div class="approach-card reveal reveal-delay-3">
+            <div class="approach-num" aria-hidden="true">03</div>
+            <h3 class="approach-title">Automate the mundane. Protect the creative.</h3>
+            <p class="approach-desc">Repetitive work isn't just inefficient — it crowds out the thinking that actually moves things forward. I look for every task that can be systematized or eliminated, so the people doing the work can spend their energy on what only they can do.</p>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Form panel -->
-      <form class="contact-form g-surface rv rv-d1" action="#" method="POST" novalidate aria-label="Contact form">
-        <div class="form-row">
-          <div class="f-group">
-            <label for="name">Name <span style="color:var(--accent)">*</span></label>
-            <input type="text"  id="name"  name="name"  placeholder="Your full name"    required autocomplete="name" />
+    <!-- Capabilities -->
+    <section class="section-capabilities" aria-labelledby="cap-title">
+      <div class="container-wide">
+        <h2 class="cap-headline reveal" id="cap-title">What I bring to the table.</h2>
+        <div class="cap-body">
+
+          <!-- Disciplines -->
+          <div>
+            <div class="cap-group reveal reveal-delay-1">
+              <p class="cap-group-label">Disciplines</p>
+              <ul class="cap-list" role="list">
+                <li class="cap-item"><span>Project Management</span><span class="cap-dot" aria-hidden="true"></span></li>
+                <li class="cap-item"><span>Systems Architecture &amp; Design</span><span class="cap-dot" aria-hidden="true"></span></li>
+                <li class="cap-item"><span>Process Design &amp; Optimization</span><span class="cap-dot" aria-hidden="true"></span></li>
+                <li class="cap-item"><span>Workflow Automation</span><span class="cap-dot" aria-hidden="true"></span></li>
+                <li class="cap-item"><span>Cross-functional Team Leadership</span><span class="cap-dot" aria-hidden="true"></span></li>
+                <li class="cap-item"><span>Operational Strategy</span><span class="cap-dot" aria-hidden="true"></span></li>
+              </ul>
+            </div>
           </div>
-          <div class="f-group">
-            <label for="email">Email <span style="color:var(--accent)">*</span></label>
-            <input type="email" id="email" name="email" placeholder="you@example.com"  required autocomplete="email" />
+
+          <!-- Tools & Methods -->
+          <div>
+            <div class="cap-group reveal reveal-delay-2">
+              <p class="cap-group-label">Methodologies</p>
+              <div class="tools-wrap">
+                <span class="tool-tag">Agile / Scrum</span>
+                <span class="tool-tag">Kanban</span>
+                <span class="tool-tag">Lean</span>
+                <span class="tool-tag">Six Sigma</span>
+                <span class="tool-tag">Systems Thinking</span>
+                <span class="tool-tag">Design Thinking</span>
+                <span class="tool-tag">OKRs</span>
+              </div>
+            </div>
+            <div class="cap-group reveal reveal-delay-3" style="margin-top:28px;">
+              <p class="cap-group-label">Tools</p>
+              <div class="tools-wrap">
+                <span class="tool-tag">ClickUp</span>
+                <span class="tool-tag">Notion</span>
+                <span class="tool-tag">Figma</span>
+                <span class="tool-tag">Slack</span>
+                <span class="tool-tag">Zapier</span>
+                <span class="tool-tag">Todoist</span>
+                <span class="tool-tag">Superhuman</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="f-group">
-          <label for="subject">Subject</label>
-          <input type="text" id="subject" name="subject" placeholder="What's this about?" />
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section-contact" id="contact" aria-labelledby="contact-title">
+      <div class="container-wide">
+        <div class="contact-body">
+
+          <div class="reveal">
+            <p class="section-label" style="margin-bottom:12px;">Work with me</p>
+            <h2 class="contact-headline" id="contact-title">Let's build something that lasts.</h2>
+            <p class="contact-desc">Whether you're dealing with a process breaking under growth, a team buried in repetitive work, or a project that needs a clearer system to land well — I'd like to hear about it.</p>
+            <p class="contact-email">Or reach me at <a href="mailto:jetercotton@gmail.com">jetercotton@gmail.com</a></p>
+          </div>
+
+          <div class="reveal reveal-delay-1">
+            <!-- SUCCESS STATE -->
+            <div class="form-success" id="form-success" role="status" aria-live="polite">
+              <div class="form-success-icon" aria-hidden="true">✓</div>
+              <h3 class="form-success-title">Message sent.</h3>
+              <p class="form-success-sub">Thanks for reaching out — I'll read it and be in touch soon.</p>
+            </div>
+
+            <!--
+-->
+            <form id="contact-form"
+                  action="https://formspree.io/f/xwpopazq"
+                  method="POST"
+                  aria-label="Contact form"
+                  novalidate>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="name">Your name <span aria-label="required">*</span></label>
+                  <input class="form-input" type="text" id="name" name="name"
+                         placeholder="First Last" required autocomplete="name" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="email">Email <span aria-label="required">*</span></label>
+                  <input class="form-input" type="email" id="email" name="email"
+                         placeholder="you@example.com" required autocomplete="email" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="context">What are you working on?</label>
+                <input class="form-input" type="text" id="context" name="context"
+                       placeholder="Brief description of the project or challenge…" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="message">Anything else to share? <span aria-label="required">*</span></label>
+                <textarea class="form-input" id="message" name="message"
+                          placeholder="Timeline, team size, what's not working — whatever's useful."
+                          required></textarea>
+              </div>
+
+              <button type="submit" class="form-submit" id="form-btn">Send message</button>
+              <p class="form-note">I read every message — I'll be in touch soon.</p>
+            </form>
+          </div>
+
         </div>
-        <div class="f-group">
-          <label for="message">Message <span style="color:var(--accent)">*</span></label>
-          <textarea id="message" name="message" placeholder="Tell me about your project, opportunity, or idea..." required></textarea>
-        </div>
-        <button type="submit" class="form-submit">
-          Send Message
-          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
-            <path d="M2 7.5h11M9 4l3.5 3.5L9 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-      </form>
+      </div>
+    </section>
 
+  </main>
+
+  <!-- ─── Footer ───────────────────────────────────────────────── -->
+  <footer class="footer" role="contentinfo">
+    <div class="container-wide">
+      <div class="footer-inner">
+        <a href="#" class="footer-logo" aria-label="Back to top">JETER</a>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="#work"     class="footer-link">Work</a>
+          <a href="#approach" class="footer-link">Approach</a>
+          <a href="#about"    class="footer-link">About</a>
+          <a href="#contact"  class="footer-link">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Jeter Cotton. All rights reserved.</p>
+        <p class="footer-tagline">It's gonna be great.</p>
+      </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-</main>
+  <!-- ─── Schema ───────────────────────────────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jeter Cotton",
+    "email": "jetercotton@gmail.com",
+    "jobTitle": "Project Manager & Systems Architect",
+    "knowsAbout": ["Project Management","Systems Architecture","Process Design","Workflow Automation","Operational Strategy"]
+  }
+  </script>
 
-<!-- ────────────────────────────────────────────────────────────────────────────────
-     FOOTER
-──────────────────────────────────────────────────────────────────────────────── -->
-<footer>
-  <div class="container">
-    <div class="foot-inner">
-      <span class="foot-logo">Jeter <em>Cotton</em></span>
-      <ul class="foot-links" role="list">
-        <li><a href="#about">About</a></li>
-        <li><a href="#competencies">Expertise</a></li>
-        <li><a href="#portfolio">Work</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <p class="foot-copy">© 2026 Jeter Cotton. Built with purpose.</p>
-    </div>
-  </div>
-</footer>
+  <!-- ─── JS ───────────────────────────────────────────────────── -->
+  <script>
+  (function () {
+    'use strict';
 
-<!-- ────────────────────────────────────────────────────────────────────────────────
-     JAVASCRIPT
-──────────────────────────────────────────────────────────────────────────────── -->
-<script>
-  /* ── Theme toggle ── */
-  const html  = document.documentElement;
-  const btn   = document.getElementById('theme-btn');
-  const icon  = document.getElementById('theme-icon');
-  const saved = localStorage.getItem('jc-theme');
-  if (saved) { html.setAttribute('data-theme', saved); icon.textContent = saved === 'dark' ? '☀️' : '🌙'; }
-  btn.addEventListener('click', () => {
-    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', next);
-    icon.textContent = next === 'dark' ? '☀️' : '🌙';
-    localStorage.setItem('jc-theme', next);
-  });
+    /* ── Mobile menu ───────────────────────────────────────────── */
+    const toggle    = document.querySelector('.menu-toggle');
+    const navLinks  = document.querySelector('.nav-links');
+    const allLinks  = document.querySelectorAll('.nav-links a');
+    const mobileCta = navLinks.querySelector('.nav-cta');
 
-  /* ── Mobile menu ── */
-  const ham   = document.getElementById('ham');
-  const links = document.getElementById('nav-links');
-  ham.addEventListener('click', function () {
-    const open = this.classList.toggle('open');
-    links.classList.toggle('open', open);
-    this.setAttribute('aria-expanded', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  });
-  links.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => {
-    ham.classList.remove('open');
-    links.classList.remove('open');
-    ham.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }));
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && links.classList.contains('open')) {
-      ham.classList.remove('open'); links.classList.remove('open');
-      ham.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
+    if (mobileCta) mobileCta.style.display = 'inline-flex';
+
+    function openMenu()  {
+      toggle.classList.add('open'); navLinks.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
     }
-  });
+    function closeMenu() {
+      toggle.classList.remove('open'); navLinks.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    toggle.addEventListener('click', () =>
+      toggle.classList.contains('open') ? closeMenu() : openMenu());
+    allLinks.forEach(l => l.addEventListener('click', closeMenu));
+    navLinks.addEventListener('click', e => { if (e.target === navLinks) closeMenu(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+        closeMenu(); toggle.focus();
+      }
+    });
 
-  /* ── Navbar scroll shadow ── */
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 20), { passive: true });
+    /* ── Navbar shadow on scroll ───────────────────────────────── */
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 8);
+    }, { passive: true });
 
-  /* ── Scroll reveal ── */
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.rv').forEach(el => io.observe(el));
-</script>
+    /* ── Nav scrollspy ─────────────────────────────────────────── */
+    const sections  = document.querySelectorAll('section[id]');
+    const navItems  = document.querySelectorAll('.nav-links .nav-link');
+    const spyOffset = 80;
+
+    function updateSpy() {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - spyOffset) current = s.id;
+      });
+      navItems.forEach(l => {
+        l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+      });
+    }
+    window.addEventListener('scroll', updateSpy, { passive: true });
+    updateSpy();
+
+    /* ── Scroll reveal ─────────────────────────────────────────── */
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    reveals.forEach(el => observer.observe(el));
+
+    /* ── Hero reveals on load ──────────────────────────────────── */
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.hero .reveal').forEach(el => {
+        setTimeout(() => el.classList.add('visible'),
+          parseInt(el.className.match(/reveal-delay-(\d)/) ?.[1] || 0) * 80);
+      });
+    });
+
+    /* ── Formspree AJAX submission ─────────────────────────────── */
+    const form        = document.getElementById('contact-form');
+    const formBtn     = document.getElementById('form-btn');
+    const formSuccess = document.getElementById('form-success');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      // Basic validation
+      const required = form.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(field => {
+        field.style.borderColor = '';
+        if (!field.value.trim()) {
+          field.style.borderColor = '#c0392b';
+          field.focus();
+          valid = false;
+        }
+      });
+      if (!valid) return;
+
+      formBtn.disabled = true;
+      formBtn.textContent = 'Sending…';
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          form.style.display = 'none';
+          formSuccess.classList.add('visible');
+        } else {
+          formBtn.disabled = false;
+          formBtn.textContent = 'Send message';
+          alert('Something went wrong. Please try emailing directly at jetercotton@gmail.com');
+        }
+      } catch {
+        formBtn.disabled = false;
+        formBtn.textContent = 'Send message';
+        alert('Something went wrong. Please try emailing directly at jetercotton@gmail.com');
+      }
+    });
+
+  }());
+  </script>
+
 </body>
 </html>
